@@ -29,7 +29,18 @@ const DevTextBox = styled.div`
   width: calc(100% - 0.5rem);
   background-color: #263238;
   color: #92989b;
+  .ityped-cursor {
+    animation: blink 0.9s infinite;
+  }
 
+  @keyframes blink {
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
   span {
     color: whitesmoke;
     font-weight: 400;
@@ -52,7 +63,7 @@ function MainLanding() {
 
   useEffect(() => {
     init(textRef.current, {
-      backDelay: 1700,
+      backDelay: 1800,
       typeSpeed: 200,
       showCursor: true,
       strings: ["Web Apps", "Solutions"],
