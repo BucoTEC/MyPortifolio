@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import mainSvg from "../main.svg";
+import mainSvg from "../../main.svg";
 import { init } from "ityped";
 
 const Wrapper = styled.div`
@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
 `;
-
+//main floating widow
 const DevDesc = styled.div`
   position: absolute;
   width: 19rem;
@@ -21,7 +21,7 @@ const DevDesc = styled.div`
   padding: 1.5rem 0.5rem 0.5rem 0.5rem;
   border-radius: 7px;
 `;
-
+//inside is text generator
 const DevTextBox = styled.div`
   padding-left: 0.5rem;
   font-size: 1.7rem;
@@ -49,7 +49,7 @@ const DevTextBox = styled.div`
     font-weight: 300;
   }
 `;
-
+//main svg
 const MainImg = styled.img`
   z-index: 1;
   position: absolute;
