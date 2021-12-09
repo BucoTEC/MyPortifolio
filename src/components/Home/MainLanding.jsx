@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   background-color: #f8ffff;
   position: relative;
   overflow: hidden;
+  margin-bottom: 4rem;
 `;
 //main floating widow
 const DevDesc = styled.div`

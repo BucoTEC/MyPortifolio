@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import laptop from "../../assets/laptop.svg";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
   background-color: #f8ffff;
+  margin-bottom: 4rem;
 `;
 
 const MainText = styled.div`
@@ -57,14 +61,19 @@ const Button = styled.div`
   }
 `;
 function SkllisIntro() {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
     <Wrapper>
       <MainText>
-        <h1>Precision</h1>
-        <h1 className="higlight">Functionality</h1>
-        <h1>Simplicity</h1>
+        <h1 data-aos="fade-right">Precision</h1>
+        <h1 data-aos="fade-right" className="higlight">
+          Functionality
+        </h1>
+        <h1 data-aos="fade-right">Simplicity</h1>
       </MainText>
-      <LaptopImg src={laptop} />
+      <LaptopImg src={laptop} data-aos="fade-left" />
       <SubText>
         <h2>These are core values I implemetn</h2>
         <h2>in all of my projects. Im here to make</h2>

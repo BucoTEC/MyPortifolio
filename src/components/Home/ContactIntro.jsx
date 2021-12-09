@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import oneDevSvg from "../../assets/oneDev.svg";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
@@ -56,17 +59,24 @@ const DevImg = styled.img`
   margin-left: -3rem;
 `;
 function ContactIntro() {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
     <Wrapper>
       <Top>
         <MainText>
           <h1>Have any</h1>
           <h1>questios ?</h1>
-          <h1 className="higlight">Fell free to</h1>
-          <h1 className="higlight">ask</h1>
+          <h1 data-aos="fade-right" className="higlight">
+            Fell free to
+          </h1>
+          <h1 data-aos="fade-right" className="higlight">
+            ask
+          </h1>
         </MainText>
         <MainImg>
-          <DevImg src={oneDevSvg} />
+          <DevImg src={oneDevSvg} data-aos="fade-left" />
         </MainImg>
       </Top>
       <Bottom>

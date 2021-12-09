@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import cloudSvg from "../../assets/cloud.svg";
 import { init } from "ityped";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Wrapper = styled.div`
   background-color: #f8ffff;
@@ -9,6 +11,7 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 6rem;
 `;
 const Top = styled.div`
   display: flex;
@@ -76,12 +79,12 @@ const InfoText = styled.div`
 `;
 function ProjectsIntro() {
   const textRef = useRef();
-
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   useEffect(() => {
     init(textRef.current, {
-      //   backSpeed: 10,
       backDelay: 1800,
-      //   typeSpeed: 10,
       showCursor: false,
       strings: [
         "7.9 Million Online Retailers in the world",
@@ -96,7 +99,9 @@ function ProjectsIntro() {
         <MainText>
           <h1>The future</h1>
           <h1>is on</h1>
-          <h1 className="higlight">The internet</h1>
+          <h1 className="higlight" data-aos="fade-up">
+            The internet
+          </h1>
         </MainText>
         <MainImg>
           <CloudImg src={cloudSvg} />

@@ -5,11 +5,21 @@ const Wrapper = styled.div`
   width: 100%;
   height: 20vh;
   background-color: lightgray;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  p {
+    margin-left: 0.7rem;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #5a5656;
+  }
 `;
 function Footer() {
   return (
     <Wrapper>
-      <p>Build by: Bucalovic</p>
+      <p>Built by: Bucalovic</p>
     </Wrapper>
   );
 }
