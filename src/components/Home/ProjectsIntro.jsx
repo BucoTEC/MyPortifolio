@@ -29,13 +29,13 @@ const MainText = styled.div`
   width: 100%;
   flex: 1;
   padding: 1rem;
+  overflow: hidden;
   h1 {
     font-size: 3.8rem;
     font-weight: 400;
   }
   .higlight {
     color: #407bff;
-    /* font-weight: 500; */
   }
 `;
 const MainImg = styled.div`
@@ -71,6 +71,7 @@ const InfoText = styled.div`
   align-items: center;
   padding-left: 1rem;
   margin: 1rem 0;
+  overflow: hidden;
 
   span {
     font-size: 2.5rem;

@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import mainSvg from "../../assets/main.svg";
 import { init } from "ityped";
-
+import { desktop } from "../../utils/responsive";
+import desktopSvg from "../../assets/bigMain.svg";
 const Wrapper = styled.div`
   width: 100%;
   height: 90vh;
@@ -21,6 +22,11 @@ const DevDesc = styled.div`
   margin: 0.5rem;
   padding: 1.5rem 0.5rem 0.5rem 0.5rem;
   border-radius: 7px;
+  ${desktop({
+    width: "24rem",
+    height: "20rem",
+    marginLeft: "5rem",
+  })}
 `;
 //inside is text generator
 const DevTextBox = styled.div`
@@ -49,6 +55,9 @@ const DevTextBox = styled.div`
   h1 {
     font-weight: 300;
   }
+  ${desktop({
+    fontSize: "2rem",
+  })}
 `;
 //main svg
 const MainImg = styled.img`
@@ -57,8 +66,15 @@ const MainImg = styled.img`
   bottom: 0;
   margin-bottom: -80px;
   margin-left: -50px;
+  ${desktop({ display: "none" })}
 `;
-
+const DesktopImg = styled.img`
+  display: none;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  ${desktop({ display: "block" })}
+`;
 function MainLanding() {
   const textRef = useRef();
 
@@ -88,6 +104,7 @@ function MainLanding() {
           </DevTextBox>
         </DevDesc>
         <MainImg width={600} src={mainSvg} alt="Adnan coding" />
+        <DesktopImg src={desktopSvg} />
       </Wrapper>
     </>
   );
