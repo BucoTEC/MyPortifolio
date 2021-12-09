@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import mainSvg from "../../main.svg";
+import mainSvg from "../../assets/main.svg";
 import { init } from "ityped";
 
 const Wrapper = styled.div`

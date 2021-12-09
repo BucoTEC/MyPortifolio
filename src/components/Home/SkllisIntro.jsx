@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import laptop from "../../laptop.svg";
+import laptop from "../../assets/laptop.svg";
 const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
@@ -45,13 +45,12 @@ const Button = styled.div`
   background-color: #407bff;
   width: 20rem;
   border-radius: 50px;
-  height: 3rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto;
   margin-top: 2rem;
-  margin-left: 1.5rem;
-
   h1 {
     font-weight: 400;
     font-size: 1.7rem;
