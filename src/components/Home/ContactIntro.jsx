@@ -3,7 +3,7 @@ import styled from "styled-components";
 import oneDevSvg from "../../assets/oneDev.svg";
 import Aos from "aos";
 import "aos/dist/aos.css";
-
+import { desktop } from "../../utils/responsive.js";
 const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
@@ -16,6 +16,9 @@ const Top = styled.div`
   flex: 5;
   width: 100%;
   overflow: hidden;
+  ${desktop({
+    display: "flex",
+  })}
 `;
 const Bottom = styled.div`
   flex: 1;
@@ -32,10 +35,26 @@ const Button = styled.div`
   align-items: center;
   margin: auto;
   margin-top: 2rem;
+  transition: all 0.3s ease-in;
+
   h1 {
     font-weight: 400;
     font-size: 1.7rem;
+    transition: all 0.3s ease-in;
   }
+  &:hover {
+    background-color: #467cf3;
+    transform: scale(1.1);
+    box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
+    h1 {
+      transform: scale(1.1);
+    }
+  }
+  ${desktop({
+    marginTop: ".5rem",
+  })}
 `;
 const MainText = styled.div`
   width: 100%;
@@ -44,20 +63,33 @@ const MainText = styled.div`
   h1 {
     font-size: 3.8rem;
     font-weight: 400;
+    ${desktop({
+      fontSize: "6rem",
+    })}
   }
   .higlight {
     color: #407bff;
     /* font-weight: 500; */
   }
+  ${desktop({
+    flex: 1,
+  })}
 `;
 const MainImg = styled.div`
   overflow: hidden;
+  ${desktop({
+    flex: 1,
+  })}
 `;
 const DevImg = styled.img`
   height: 40rem;
   margin-top: -11rem;
   margin-left: -3rem;
+  ${desktop({
+    height: "50rem",
+  })}
 `;
+
 function ContactIntro() {
   useEffect(() => {
     Aos.init({ duration: 2000 });

@@ -22,7 +22,7 @@ const MainText = styled.div`
     font-size: 3.8rem;
     font-weight: 400;
     ${desktop({
-      fontSize: "4rem",
+      fontSize: "5rem",
     })}
   }
   .higlight {
@@ -33,19 +33,33 @@ const LaptopImg = styled.img`
   padding: 1rem;
   width: 68%;
   float: right;
+  ${desktop({
+    width: "100%",
+  })}
 `;
 const SubText = styled.div`
   padding: 0rem 1rem;
   width: 100%;
-
+  ${desktop({
+    padding: "3rem",
+    overflow: "hidden",
+    paddingLeft: "5rem",
+  })}
   h2 {
     font-size: 1.3rem;
     font-weight: 400;
+    ${desktop({
+      fontSize: "2.3rem",
+    })}
   }
   h1 {
     color: #407bff;
     font-size: 2.5rem;
     font-weight: 500;
+    ${desktop({
+      fontSize: "3rem",
+      fontWeight: 400,
+    })}
   }
   #gornji {
     margin-top: 0.5rem;
@@ -62,10 +76,32 @@ const Button = styled.div`
   align-items: center;
   margin: auto;
   margin-top: 2rem;
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+
   h1 {
     font-weight: 400;
     font-size: 1.7rem;
+    overflow: hidden;
+    transition: all 0.3s ease-in;
   }
+  &:hover {
+    background-color: #467cf3;
+    transform: scale(1.1);
+    box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
+    h1 {
+      transform: scale(1.1);
+    }
+  }
+  ${desktop({
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    margin: "2rem",
+    marginRight: "10rem",
+  })}
 `;
 const Top = styled.div`
   width: 100%;
@@ -75,6 +111,8 @@ const Top = styled.div`
   })}
 `;
 const Bottom = styled.div`
+  position: relative;
+  overflow: hidden;
   width: 100%;
   ${desktop({
     flex: "1",

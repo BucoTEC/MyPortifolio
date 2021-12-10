@@ -4,7 +4,6 @@ import MainLanding from "../components/Home/MainLanding";
 import ProjectsIntro from "../components/Home/ProjectsIntro";
 import SkllisIntro from "../components/Home/SkllisIntro";
 import ScrollToTop from "react-scroll-to-top";
-import Footer from "../components/Footer";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -31,8 +30,6 @@ function Home() {
       <SkllisIntro />
       <ProjectsIntro />
       <ContactIntro />
-
-      <Footer />
     </Wrapper>
   );
 }

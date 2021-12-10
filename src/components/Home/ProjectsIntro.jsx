@@ -4,7 +4,7 @@ import cloudSvg from "../../assets/cloud.svg";
 import { init } from "ityped";
 import Aos from "aos";
 import "aos/dist/aos.css";
-
+import { desktop } from "../../utils/responsive";
 const Wrapper = styled.div`
   background-color: #f8ffff;
   height: 100vh;
@@ -12,17 +12,27 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 6rem;
+  ${desktop({
+    marginTop: "7rem",
+  })}
 `;
 const Top = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1.6;
   width: 100%;
+  ${desktop({
+    flexDirection: "row",
+  })}
 `;
 
 const Bottom = styled.div`
   flex: 1;
   width: 100%;
+  ${desktop({
+    display: "flex",
+    flexDirection: "row-reverse",
+  })}
 `;
 
 const MainText = styled.div`
@@ -33,6 +43,9 @@ const MainText = styled.div`
   h1 {
     font-size: 3.8rem;
     font-weight: 400;
+    ${desktop({
+      fontSize: "5rem",
+    })}
   }
   .higlight {
     color: #407bff;
@@ -47,7 +60,15 @@ const MainImg = styled.div`
 
 const CloudImg = styled.img`
   height: 100%;
+  ${desktop({
+    height: "80%",
+    marginLeft: "3rem",
+  })}
 `;
+const ButtonContainer = styled.div`
+  flex: 1;
+`;
+
 const Button = styled.div`
   color: whitesmoke;
   background-color: #407bff;
@@ -59,11 +80,26 @@ const Button = styled.div`
   align-items: center;
   margin: auto;
   margin-top: 2rem;
+  transition: all 0.3s ease-in;
+
   h1 {
     font-weight: 400;
     font-size: 1.7rem;
+    transition: all 0.3s ease-in;
+  }
+
+  &:hover {
+    background-color: #467cf3;
+    transform: scale(1.1);
+    box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
+    h1 {
+      transform: scale(1.1);
+    }
   }
 `;
+
 const InfoText = styled.div`
   height: 50%;
   display: flex;
@@ -72,7 +108,7 @@ const InfoText = styled.div`
   padding-left: 1rem;
   margin: 1rem 0;
   overflow: hidden;
-
+  flex: 1;
   span {
     font-size: 2.5rem;
     font-weight: 500;
@@ -94,6 +130,7 @@ function ProjectsIntro() {
       ],
     });
   }, []);
+
   return (
     <Wrapper>
       <Top>
@@ -105,16 +142,18 @@ function ProjectsIntro() {
           </h1>
         </MainText>
         <MainImg>
-          <CloudImg src={cloudSvg} />
+          <CloudImg src={cloudSvg} data-aos="fade-up" />
         </MainImg>
       </Top>
       <Bottom>
         <InfoText>
           <span ref={textRef}></span>
         </InfoText>
-        <Button>
-          <h1>My projects</h1>
-        </Button>
+        <ButtonContainer>
+          <Button>
+            <h1>My projects</h1>
+          </Button>
+        </ButtonContainer>
       </Bottom>
     </Wrapper>
   );

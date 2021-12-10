@@ -1,11 +1,13 @@
 import Home from "./pages/Home";
 import TopBar from "./components/TopBar";
+import Footer from "./components/Footer";
 function App() {
   return (
-    <div>
+    <>
       <TopBar />
       <Home />
-    </div>
+      <Footer />
+    </>
   );
 }
 
