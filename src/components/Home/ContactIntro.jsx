@@ -5,11 +5,14 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { desktop, tablet } from "../../utils/responsive.js";
 const Wrapper = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-color: #f8ffff;
   display: flex;
   flex-direction: column;
+  ${desktop({
+    height: "100vh",
+  })}
 `;
 
 const Top = styled.div`
@@ -101,13 +104,12 @@ const DevImg = styled.img`
   margin-top: -11rem;
   margin-left: -3rem;
 
-  ${tablet({
-    height: "70rem",
-    marginLeft: "2rem",
-  })}
   ${desktop({
     height: "50rem",
     marginLeft: 0,
+  })}
+  ${tablet({
+    marginLeft: "2rem",
   })}
 `;
 

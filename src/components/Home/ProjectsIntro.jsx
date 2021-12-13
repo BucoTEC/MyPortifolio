@@ -7,16 +7,14 @@ import "aos/dist/aos.css";
 import { desktop, tablet } from "../../utils/responsive";
 const Wrapper = styled.div`
   background-color: #f8ffff;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 6rem;
   ${desktop({
     marginTop: "7rem",
-  })}
-  ${tablet({
-    // height: "80vh",
+    height: "100vh",
   })}
 `;
 const Top = styled.div`
@@ -59,20 +57,23 @@ const MainText = styled.div`
 `;
 const MainImg = styled.div`
   overflow: hidden;
-  width: 100%;
+  width: 90%;
   flex: 1;
   padding-left: 1rem;
 `;
 
 const CloudImg = styled.img`
   height: 100%;
+  max-height: 30rem;
   ${desktop({
     height: "80%",
     marginLeft: "3rem",
-  })}
+  })};
 `;
 const ButtonContainer = styled.div`
   flex: 1;
+  overflow: hidden;
+  padding: 1.5rem;
 `;
 
 const Button = styled.div`

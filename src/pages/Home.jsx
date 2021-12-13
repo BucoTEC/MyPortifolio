@@ -7,7 +7,7 @@ import ScrollToTop from "react-scroll-to-top";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  width: 80%;
+  max-width: 71rem;
   margin: auto;
   /* border: 1px solid black; */
   @media only screen and (max-width: 380px) {

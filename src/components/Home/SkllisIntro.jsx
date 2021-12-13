@@ -5,14 +5,16 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { desktop, tablet } from "../../utils/responsive.js";
 const Wrapper = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-color: #f8ffff;
   margin-bottom: 4rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  ${desktop({})}
+  ${desktop({
+    height: "100vh",
+  })}
 `;
 
 const MainText = styled.div`

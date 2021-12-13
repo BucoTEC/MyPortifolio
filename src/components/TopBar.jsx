@@ -5,6 +5,13 @@ const TopNav = styled.div`
   width: 100vw;
   text-align: center;
   display: flex;
+  &:hover #nastavak {
+    opacity: 1;
+    transform: translateX(0);
+    #nastavakInner {
+      opacity: 1;
+    }
+  }
 `;
 const Right = styled.div`
   flex: 1;
@@ -27,23 +34,26 @@ const Left = styled.div`
 `;
 const Logo = styled.div`
   margin-left: 2rem;
+  cursor: pointer;
   h1 {
     font-weight: 200;
     font-size: 3rem;
   }
-  #nastavak {
-    display: none;
-    opacity: 0;
-    transition: all 0.3s ease-in;
-  }
   #glavni {
     margin: 0 0.5rem;
     transition: all 0.3s ease-in;
-
-    &:hover #nastavak {
-      display: inline;
-      opacity: 1;
-    }
+    z-index: 5;
+  }
+  #nastavak {
+    position: absolute;
+    opacity: 1;
+    transform: translateX(-75%);
+    transition: all 0.3s ease-in;
+  }
+  #nastavakInner {
+    opacity: 0;
+    transition: all 0.3s ease-in;
+    margin-right: 0.5rem;
   }
 `;
 function TopBar() {
@@ -55,9 +65,12 @@ function TopBar() {
             <h1>
               &lt;
               <span id="glavni">
-                B<span id="nastavak">tech</span>
+                B
+                <span id="nastavak">
+                  {" "}
+                  <span id="nastavakInner">tech</span>&gt;
+                </span>
               </span>
-              &gt;{" "}
             </h1>
           </Logo>
         </Left>
