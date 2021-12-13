@@ -4,7 +4,7 @@ import cloudSvg from "../../assets/cloud.svg";
 import { init } from "ityped";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { desktop } from "../../utils/responsive";
+import { desktop, tablet } from "../../utils/responsive";
 const Wrapper = styled.div`
   background-color: #f8ffff;
   height: 100vh;
@@ -14,6 +14,9 @@ const Wrapper = styled.div`
   margin-bottom: 6rem;
   ${desktop({
     marginTop: "7rem",
+  })}
+  ${tablet({
+    // height: "80vh",
   })}
 `;
 const Top = styled.div`
@@ -44,6 +47,9 @@ const MainText = styled.div`
     font-size: 3.8rem;
     font-weight: 400;
     ${desktop({
+      fontSize: "5rem",
+    })}
+    ${tablet({
       fontSize: "5rem",
     })}
   }
@@ -86,6 +92,9 @@ const Button = styled.div`
     font-weight: 400;
     font-size: 1.7rem;
     transition: all 0.3s ease-in;
+    ${tablet({
+      fontSize: "2rem",
+    })}
   }
 
   &:hover {
@@ -98,6 +107,10 @@ const Button = styled.div`
       transform: scale(1.1);
     }
   }
+  ${tablet({
+    width: "30rem",
+    height: "6rem",
+  })}
 `;
 
 const InfoText = styled.div`

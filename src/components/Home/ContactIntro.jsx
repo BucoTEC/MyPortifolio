@@ -3,7 +3,7 @@ import styled from "styled-components";
 import oneDevSvg from "../../assets/oneDev.svg";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { desktop } from "../../utils/responsive.js";
+import { desktop, tablet } from "../../utils/responsive.js";
 const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
@@ -23,6 +23,12 @@ const Top = styled.div`
 const Bottom = styled.div`
   flex: 1;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ${desktop({
+    padding: "2rem",
+  })}
 `;
 const Button = styled.div`
   color: whitesmoke;
@@ -34,13 +40,15 @@ const Button = styled.div`
   justify-content: center;
   align-items: center;
   margin: auto;
-  margin-top: 2rem;
   transition: all 0.3s ease-in;
 
   h1 {
     font-weight: 400;
     font-size: 1.7rem;
     transition: all 0.3s ease-in;
+    ${tablet({
+      fontSize: "2rem",
+    })}
   }
   &:hover {
     background-color: #467cf3;
@@ -55,6 +63,10 @@ const Button = styled.div`
   ${desktop({
     marginTop: ".5rem",
   })}
+  ${tablet({
+    width: "30rem",
+    height: "6rem",
+  })}
 `;
 const MainText = styled.div`
   width: 100%;
@@ -65,6 +77,9 @@ const MainText = styled.div`
     font-weight: 400;
     ${desktop({
       fontSize: "6rem",
+    })}
+    ${tablet({
+      fontSize: "5rem",
     })}
   }
   .higlight {

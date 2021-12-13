@@ -3,7 +3,7 @@ import styled from "styled-components";
 import laptop from "../../assets/laptop.svg";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { desktop } from "../../utils/responsive.js";
+import { desktop, tablet } from "../../utils/responsive.js";
 const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
@@ -23,6 +23,9 @@ const MainText = styled.div`
     font-weight: 400;
     ${desktop({
       fontSize: "5rem",
+    })}
+    ${tablet({
+      fontSize: "4.5rem",
     })}
   }
   .higlight {
@@ -50,6 +53,9 @@ const SubText = styled.div`
     font-weight: 400;
     ${desktop({
       fontSize: "2.3rem",
+    })}
+    ${tablet({
+      fontSize: "1.8rem",
     })}
   }
   h1 {
@@ -84,6 +90,9 @@ const Button = styled.div`
     font-size: 1.7rem;
     overflow: hidden;
     transition: all 0.3s ease-in;
+    ${tablet({
+      fontSize: "2rem",
+    })}
   }
   &:hover {
     background-color: #467cf3;
@@ -102,9 +111,15 @@ const Button = styled.div`
     margin: "2rem",
     marginRight: "10rem",
   })}
+  ${tablet({
+    width: "30rem",
+    height: "6rem",
+    marginTop: "1.2rem",
+  })}
 `;
 const Top = styled.div`
   width: 100%;
+  overflow: hidden;
   ${desktop({
     flex: "1",
     display: "flex",

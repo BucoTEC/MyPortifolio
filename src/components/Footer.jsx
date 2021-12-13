@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
+  margin-top: 4rem;
 
   p {
     margin-left: 0.7rem;

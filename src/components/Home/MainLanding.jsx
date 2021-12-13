@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import mainSvg from "../../assets/main.svg";
 import { init } from "ityped";
-import { desktop } from "../../utils/responsive";
+import { desktop, tablet } from "../../utils/responsive";
 import desktopSvg from "../../assets/bigMain.svg";
+import tabletSvg from "../../assets/tabletMain.svg";
 const Wrapper = styled.div`
   width: 100%;
   height: 90vh;
@@ -26,6 +27,10 @@ const DevDesc = styled.div`
     width: "24rem",
     height: "20rem",
     marginLeft: "5rem",
+  })}
+  ${tablet({
+    width: "24rem",
+    height: "20rem",
   })}
 `;
 //inside is text generator
@@ -58,6 +63,9 @@ const DevTextBox = styled.div`
   ${desktop({
     fontSize: "2rem",
   })}
+  ${tablet({
+    fontSize: "2rem",
+  })}
 `;
 //main svg
 const MainImg = styled.img`
@@ -67,6 +75,9 @@ const MainImg = styled.img`
   margin-bottom: -80px;
   margin-left: -50px;
   ${desktop({ display: "none" })}
+  ${tablet({
+    display: "none",
+  })}
 `;
 const DesktopImg = styled.img`
   display: none;
@@ -74,6 +85,19 @@ const DesktopImg = styled.img`
   position: absolute;
   right: 0;
   ${desktop({ display: "block" })}
+`;
+const TabletImg = styled.img`
+  display: none;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  margin-right: -2rem;
+  ${tablet({
+    display: "block",
+  })};
+  ${desktop({
+    display: "none",
+  })}
 `;
 function MainLanding() {
   const textRef = useRef();
@@ -105,6 +129,7 @@ function MainLanding() {
         </DevDesc>
         <MainImg width={600} src={mainSvg} alt="Adnan coding" />
         <DesktopImg src={desktopSvg} />
+        <TabletImg src={tabletSvg} />
       </Wrapper>
     </>
   );
