@@ -8,6 +8,17 @@ const TopNav = styled.div`
 `;
 const Right = styled.div`
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+`;
+const NavList = styled.ul`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  li {
+  }
 `;
 const Left = styled.div`
   flex: 1;
@@ -50,7 +61,15 @@ function TopBar() {
             </h1>
           </Logo>
         </Left>
-        <Right></Right>
+        <Right>
+          <NavList>
+            <li>Contact</li>
+            <li>My Skills</li>
+            <li>My projects</li>
+            <li>About</li>
+            <li>Support</li>
+          </NavList>
+        </Right>
       </TopNav>
     </>
   );
