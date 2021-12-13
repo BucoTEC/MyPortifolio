@@ -100,8 +100,14 @@ const DevImg = styled.img`
   height: 40rem;
   margin-top: -11rem;
   margin-left: -3rem;
+
+  ${tablet({
+    height: "70rem",
+    marginLeft: "2rem",
+  })}
   ${desktop({
     height: "50rem",
+    marginLeft: 0,
   })}
 `;
 
