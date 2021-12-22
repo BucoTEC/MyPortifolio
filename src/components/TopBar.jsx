@@ -110,6 +110,11 @@ const BasicLogo = styled.div`
     display: "none",
   })}
 `;
+
+//TODO FINISH ALIGNEMT
+//TODO ADD TRANSSPARANCI OR BACGRAUND CHANGE TO TOP BAR
+//TODO MAKE MODAL CLOSE ON LINK CLICK
+
 const SideMenu = styled.div`
   position: relative;
   width: 100vw;
