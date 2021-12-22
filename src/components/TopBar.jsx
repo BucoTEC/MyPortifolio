@@ -1,11 +1,9 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import Navigatro from "../ui/Navigator";
-// const Navigatro = styled(Link)`
-//   text-decoration: none;
-//   color: black;
-// `;
-
+import { desktop, tablet } from "../utils/responsive";
 const TopNav = styled.div`
   height: 10vh;
   width: 100vw;
@@ -27,18 +25,53 @@ const Right = styled.div`
 `;
 const NavList = styled.ul`
   width: 100%;
-  display: flex;
   align-items: center;
   justify-content: space-around;
-  li {
-  }
+  display: none;
+  ${desktop({
+    display: "flex",
+  })}
 `;
 const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
 `;
+const Hamburger = styled.div`
+  width: 3rem;
+  height: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-left: 6rem;
+  overflow: hidden;
+  span {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transform-origin: left;
+    transition: all 1.5s ease;
+  }
+  #prva {
+    transform: rotate(${(props) => props.isOpen && "45deg"});
+  }
+  #druga {
+    opacity: ${(props) => props.isOpen && 0};
+  }
+  #treca {
+    transform: rotate(${(props) => props.isOpen && "-45deg"});
+  }
+  ${desktop({
+    display: "none",
+  })}
+  ${tablet({
+    marginLeft: "17rem",
+  })}
+`;
+
 const Logo = styled.div`
+  display: none;
   margin-left: 2rem;
   cursor: pointer;
   h1 {
@@ -61,14 +94,60 @@ const Logo = styled.div`
     transition: all 0.3s ease-in;
     margin-right: 0.5rem;
   }
+  ${desktop({
+    display: "block",
+  })}
+`;
+const BasicLogo = styled.div`
+  display: block;
+  margin-left: 2rem;
+  cursor: pointer;
+  h1 {
+    font-weight: 200;
+    font-size: 3rem;
+  }
+  ${desktop({
+    display: "none",
+  })}
+`;
+const SideMenu = styled.div`
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  margin-top: 10vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: translateX(${(props) => (props.isOpen ? "0" : "100vh")});
+  transition: all 1.5s ease;
+
+  li {
+    font-size: 5rem;
+  }
+`;
+
+const SideLinks = styled.div`
+  position: absolute;
+  z-index: 99999;
 `;
 function TopBar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    if (menuOpen) {
+      return (document.body.style.position = "fixed");
+    }
+    document.body.style.position = "absolute";
+  }, [menuOpen]);
   return (
     <>
       <TopNav>
         <Left>
-          <Navigatro to="/">
-            <Logo>
+          <Logo>
+            <Navigatro to="/">
               <h1>
                 &lt;
                 <span id="glavni">
@@ -79,8 +158,13 @@ function TopBar() {
                   </span>
                 </span>
               </h1>
-            </Logo>
-          </Navigatro>
+            </Navigatro>
+          </Logo>
+          <BasicLogo>
+            <Navigatro to="/">
+              <h1>&lt; B &gt;</h1>
+            </Navigatro>
+          </BasicLogo>
         </Left>
         <Right>
           <NavList>
@@ -90,8 +174,39 @@ function TopBar() {
             <Navigatro to="/about">About</Navigatro>
             <Navigatro to="/support-me">Support</Navigatro>
           </NavList>
+          <Hamburger
+            onClick={() => {
+              setMenuOpen(!menuOpen);
+            }}
+            isOpen={menuOpen}
+          >
+            <span id="prva"></span>
+            <span id="druga"></span>
+            <span id="treca"></span>
+          </Hamburger>
         </Right>
       </TopNav>
+      <SideMenu isOpen={menuOpen}>
+        <SideLinks>
+          <ul>
+            <li>
+              <Navigatro to="/contact">Contact</Navigatro>
+            </li>
+            <li>
+              <Navigatro to="/skills">My Skills</Navigatro>
+            </li>
+            <li>
+              <Navigatro to="/projects">My projects</Navigatro>
+            </li>
+            <li>
+              <Navigatro to="/about">About</Navigatro>
+            </li>
+            <li>
+              <Navigatro to="/support-me">Support</Navigatro>
+            </li>
+          </ul>
+        </SideLinks>
+      </SideMenu>
     </>
   );
 }
