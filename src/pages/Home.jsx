@@ -5,11 +5,9 @@ import ProjectsIntro from "../components/Home/ProjectsIntro";
 import SkllisIntro from "../components/Home/SkllisIntro";
 import ScrollToTop from "react-scroll-to-top";
 import styled from "styled-components";
-
 const Wrapper = styled.div`
   max-width: 71rem;
   margin: auto;
-  /* border: 1px solid black; */
   @media only screen and (max-width: 380px) {
     & {
       width: 100%;

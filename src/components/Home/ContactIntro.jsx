@@ -4,6 +4,7 @@ import oneDevSvg from "../../assets/oneDev.svg";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { desktop, tablet } from "../../utils/responsive.js";
+import Navigatro from "../../ui/Navigator.js";
 const Wrapper = styled.div`
   min-height: 100vh;
   width: 100%;
@@ -24,13 +25,18 @@ const Top = styled.div`
   })}
 `;
 const Bottom = styled.div`
+  position: relative;
   flex: 1;
   width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  margin-top: -3rem;
+  z-index: 2;
   ${desktop({
-    padding: "2rem",
+    padding: "1rem",
   })}
 `;
 const Button = styled.div`
@@ -42,7 +48,6 @@ const Button = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
   transition: all 0.3s ease-in;
 
   h1 {
@@ -64,7 +69,8 @@ const Button = styled.div`
     }
   }
   ${desktop({
-    marginTop: ".5rem",
+    marginTop: "1rem",
+    margin: "1.5rem",
   })}
   ${tablet({
     width: "30rem",
@@ -103,7 +109,6 @@ const DevImg = styled.img`
   height: 40rem;
   margin-top: -11rem;
   margin-left: -3rem;
-
   ${desktop({
     height: "50rem",
     marginLeft: 0,
@@ -135,9 +140,11 @@ function ContactIntro() {
         </MainImg>
       </Top>
       <Bottom>
-        <Button>
-          <h1>Contact me</h1>
-        </Button>
+        <Navigatro to="/contact">
+          <Button>
+            <h1>Contact me</h1>
+          </Button>
+        </Navigatro>
       </Bottom>
     </Wrapper>
   );

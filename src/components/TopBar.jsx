@@ -1,5 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import Navigatro from "../ui/Navigator";
+// const Navigatro = styled(Link)`
+//   text-decoration: none;
+//   color: black;
+// `;
+
 const TopNav = styled.div`
   height: 10vh;
   width: 100vw;
@@ -61,26 +67,28 @@ function TopBar() {
     <>
       <TopNav>
         <Left>
-          <Logo>
-            <h1>
-              &lt;
-              <span id="glavni">
-                B
-                <span id="nastavak">
-                  {" "}
-                  <span id="nastavakInner">tech</span>&gt;
+          <Navigatro to="/">
+            <Logo>
+              <h1>
+                &lt;
+                <span id="glavni">
+                  B
+                  <span id="nastavak">
+                    {" "}
+                    <span id="nastavakInner">tech</span>&gt;
+                  </span>
                 </span>
-              </span>
-            </h1>
-          </Logo>
+              </h1>
+            </Logo>
+          </Navigatro>
         </Left>
         <Right>
           <NavList>
-            <li>Contact</li>
-            <li>My Skills</li>
-            <li>My projects</li>
-            <li>About</li>
-            <li>Support</li>
+            <Navigatro to="/contact">Contact</Navigatro>
+            <Navigatro to="/skills">My Skills</Navigatro>
+            <Navigatro to="/projects">My projects</Navigatro>
+            <Navigatro to="/about">About</Navigatro>
+            <Navigatro to="/support-me">Support</Navigatro>
           </NavList>
         </Right>
       </TopNav>

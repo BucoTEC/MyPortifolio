@@ -4,7 +4,8 @@ import cloudSvg from "../../assets/cloud.svg";
 import { init } from "ityped";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { desktop, tablet } from "../../utils/responsive";
+import { desktop, tablet, phone } from "../../utils/responsive";
+import Navigatro from "../../ui/Navigator";
 const Wrapper = styled.div`
   background-color: #f8ffff;
   min-height: 100vh;
@@ -69,6 +70,12 @@ const CloudImg = styled.img`
     height: "80%",
     marginLeft: "3rem",
   })};
+  ${phone({
+    height: "15rem",
+  })}
+  ${tablet({
+    height: "25rem",
+  })}
 `;
 const ButtonContainer = styled.div`
   flex: 1;
@@ -127,6 +134,12 @@ const InfoText = styled.div`
     font-size: 2.5rem;
     font-weight: 500;
   }
+  ${phone({
+    height: "9rem",
+  })}
+  ${tablet({
+    height: "6rem",
+  })}
 `;
 function ProjectsIntro() {
   const textRef = useRef();
@@ -164,9 +177,11 @@ function ProjectsIntro() {
           <span ref={textRef}></span>
         </InfoText>
         <ButtonContainer>
-          <Button>
-            <h1>My projects</h1>
-          </Button>
+          <Navigatro to="/projects">
+            <Button>
+              <h1>My projects</h1>
+            </Button>
+          </Navigatro>
         </ButtonContainer>
       </Bottom>
     </Wrapper>

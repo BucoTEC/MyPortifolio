@@ -4,6 +4,8 @@ import laptop from "../../assets/laptop.svg";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { desktop, tablet } from "../../utils/responsive.js";
+import Navigatro from "../../ui/Navigator";
+
 const Wrapper = styled.div`
   min-height: 100vh;
   width: 100%;
@@ -158,9 +160,11 @@ function SkllisIntro() {
           <h1 id="gornji">Your problems </h1>
           <h1>disapear</h1>
         </SubText>
-        <Button>
-          <h1>My Skills</h1>
-        </Button>
+        <Navigatro to="/skills">
+          <Button>
+            <h1>My Skills</h1>
+          </Button>
+        </Navigatro>
       </Bottom>
     </Wrapper>
   );
