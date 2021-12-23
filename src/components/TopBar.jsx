@@ -3,7 +3,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import Navigatro from "../ui/Navigator";
-import { desktop, tablet } from "../utils/responsive";
+import { desktop, tablet } from "../utils/responsive.js";
+import CustomLink from "../ui/CustomLink";
+
 const TopNav = styled.div`
   height: 10vh;
   width: 100vw;
@@ -21,13 +23,21 @@ const Right = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: end;
+
+  ${desktop({
+    alignItems: "center",
+    justifyContent: "start",
+  })}
 `;
 const NavList = styled.ul`
   width: 100%;
+  height: 100%;
   align-items: center;
   justify-content: space-around;
   display: none;
+  font-size: 1.2rem;
+  font-weight: 300;
   ${desktop({
     display: "flex",
   })}
@@ -38,13 +48,13 @@ const Left = styled.div`
   align-items: center;
 `;
 const Hamburger = styled.div`
+  margin-right: 3rem;
   width: 3rem;
   height: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  margin-left: 6rem;
   overflow: hidden;
   span {
     width: 100%;
@@ -111,28 +121,29 @@ const BasicLogo = styled.div`
   })}
 `;
 
-//TODO FINISH ALIGNEMT
-//TODO ADD TRANSSPARANCI OR BACGRAUND CHANGE TO TOP BAR
-//TODO MAKE MODAL CLOSE ON LINK CLICK
-
 const SideMenu = styled.div`
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 90vh;
   margin-top: 10vh;
   position: fixed;
   top: 0;
   right: 0;
   z-index: 5;
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
   background-color: rgba(255, 255, 255, 0.5);
-  transform: translateX(${(props) => (props.isOpen ? "0" : "100vh")});
+  transform: translateX(${(props) => (props.isOpen ? "0" : "100%")});
   transition: all 1.5s ease;
 
   li {
-    font-size: 5rem;
+    font-size: 3rem;
+    margin: 2rem;
+    font-weight: 250;
   }
+  ${desktop({
+    display: "none",
+  })}
 `;
 
 const SideLinks = styled.div`
@@ -173,11 +184,11 @@ function TopBar() {
         </Left>
         <Right>
           <NavList>
-            <Navigatro to="/contact">Contact</Navigatro>
-            <Navigatro to="/skills">My Skills</Navigatro>
-            <Navigatro to="/projects">My projects</Navigatro>
-            <Navigatro to="/about">About</Navigatro>
-            <Navigatro to="/support-me">Support</Navigatro>
+            <CustomLink to="/contact">Contact</CustomLink>
+            <CustomLink to="/skills">My Skills</CustomLink>
+            <CustomLink to="/projects">My projects</CustomLink>
+            <CustomLink to="/about">About</CustomLink>
+            <CustomLink to="/support-me">Support</CustomLink>
           </NavList>
           <Hamburger
             onClick={() => {
@@ -193,21 +204,28 @@ function TopBar() {
       </TopNav>
       <SideMenu isOpen={menuOpen}>
         <SideLinks>
-          <ul>
+          <ul
+            onClick={() => {
+              setMenuOpen(!menuOpen);
+            }}
+          >
             <li>
-              <Navigatro to="/contact">Contact</Navigatro>
+              <CustomLink to="/">Home</CustomLink>
             </li>
             <li>
-              <Navigatro to="/skills">My Skills</Navigatro>
+              <CustomLink to="/contact">Contact</CustomLink>
             </li>
             <li>
-              <Navigatro to="/projects">My projects</Navigatro>
+              <CustomLink to="/skills">My Skills</CustomLink>
             </li>
             <li>
-              <Navigatro to="/about">About</Navigatro>
+              <CustomLink to="/projects">My projects</CustomLink>
             </li>
             <li>
-              <Navigatro to="/support-me">Support</Navigatro>
+              <CustomLink to="/about">About</CustomLink>
+            </li>
+            <li>
+              <CustomLink to="/support-me">Support</CustomLink>
             </li>
           </ul>
         </SideLinks>

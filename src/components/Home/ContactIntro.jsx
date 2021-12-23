@@ -7,12 +7,13 @@ import { desktop, tablet } from "../../utils/responsive.js";
 import Navigatro from "../../ui/Navigator.js";
 const Wrapper = styled.div`
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
   background-color: #f8ffff;
   display: flex;
   flex-direction: column;
   ${desktop({
     height: "100vh",
+    width: "100%",
   })}
 `;
 

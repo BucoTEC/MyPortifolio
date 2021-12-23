@@ -7,10 +7,13 @@ import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 import Support from "./pages/Support";
-
+import styled from "styled-components";
+const Wrapper = styled.div`
+  width: 100vw;
+`;
 function App() {
   return (
-    <>
+    <Wrapper>
       <TopBar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -21,7 +24,7 @@ function App() {
         <Route path="about" element={<About />} />
       </Routes>
       <Footer />
-    </>
+    </Wrapper>
   );
 }
 

@@ -9,13 +9,14 @@ import Navigatro from "../../ui/Navigator";
 const Wrapper = styled.div`
   background-color: #f8ffff;
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   margin-bottom: 6rem;
   ${desktop({
     marginTop: "7rem",
     height: "100vh",
+    width: "100%",
   })}
 `;
 const Top = styled.div`

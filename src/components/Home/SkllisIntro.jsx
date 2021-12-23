@@ -8,7 +8,7 @@ import Navigatro from "../../ui/Navigator";
 
 const Wrapper = styled.div`
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
   background-color: #f8ffff;
   margin-bottom: 4rem;
   overflow: hidden;
@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   ${desktop({
     height: "100vh",
+    width: "100%",
   })}
 `;
 
