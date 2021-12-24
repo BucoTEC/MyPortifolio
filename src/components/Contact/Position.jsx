@@ -50,7 +50,7 @@ const Text = styled.div`
     ${phone({
       fontSize: "3rem",
     })}
-    
+  }
 `;
 const MainImg = styled.img`
   width: 100%;
