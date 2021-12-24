@@ -16,6 +16,7 @@ const Wrapper = styled.div`
     font-weight: 300;
     color: #5a5656;
   }
+  overflow: hidden;
 `;
 function Footer() {
   return (

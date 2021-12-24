@@ -18,6 +18,7 @@ const TopNav = styled.div`
       opacity: 1;
     }
   }
+  overflow: hidden;
 `;
 const Right = styled.div`
   flex: 1;
