@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import eu from "../../assets/smallEU.svg";
 import { phone, desktop } from "../../utils/responsive";
+import Arrow from "../../assets/downArrow.svg";
+
 const Wrapper = styled.div`
   height: 90vh;
   width: 100%;
@@ -15,9 +17,9 @@ const Text = styled.div`
   ${desktop({
     padding: "1.3rem",
   })}
-
   h1 {
-    margin: 1rem 0rem;
+    border-radius: 25px;
+    margin: 1rem 0;
     font-size: 7rem;
     font-weight: 300;
     color: #263238;
@@ -26,7 +28,9 @@ const Text = styled.div`
     })}
     transition: all 0.3s ease-in;
     &:hover {
-      transform: scale(1.1);
+      ${desktop({
+        transform: "scale(1.1)",
+      })}
     }
     a {
       text-decoration: none;
@@ -56,6 +60,24 @@ const MainImg = styled.img`
   width: 100%;
   height: 125%;
 `;
+const ArrowIcon = styled.img`
+  width: 3rem;
+  height: 3rem;
+  margin: 2rem;
+  color: #263238;
+  animation: blink 0.7s infinite;
+  animation-direction: alternate;
+  ${phone({
+    marginTop: "25rem",
+    marginLeft: "9rem",
+  })}
+  @keyframes blink {
+    100% {
+      opacity: 0;
+    }
+  }
+`;
+
 export default function Position() {
   return (
     <Wrapper>
@@ -70,6 +92,7 @@ export default function Position() {
           </a>
         </h1>
         <h2>utc +2</h2>
+        <ArrowIcon src={Arrow} alt="" />
       </Text>
       <MainImg src={eu} />
     </Wrapper>
