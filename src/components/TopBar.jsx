@@ -133,7 +133,7 @@ const SideMenu = styled.div`
   z-index: 5;
   -webkit-backdrop-filter: blur(25px);
   backdrop-filter: blur(25px);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
   transform: translateX(${(props) => (props.isOpen ? "0" : "100%")});
   transition: all 1.5s ease;
 
