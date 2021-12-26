@@ -185,6 +185,7 @@ function TopBar() {
         </Left>
         <Right>
           <NavList>
+            <CustomLink to="/">Home</CustomLink>
             <CustomLink to="/contact">Contact</CustomLink>
             <CustomLink to="/skills">My Skills</CustomLink>
             <CustomLink to="/projects">My projects</CustomLink>

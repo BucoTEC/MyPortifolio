@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { phone, tablet, desktop } from "../../utils/responsive.js";
+import { phone, tablet } from "../../utils/responsive.js";
 const Wrapper = styled.div`
   height: 80vh;
   width: 100%;
