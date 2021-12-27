@@ -21,10 +21,11 @@ const TopNav = styled.div`
   overflow: hidden;
 `;
 const Right = styled.div`
-  flex: 1;
+  flex: 1.5;
   display: flex;
   align-items: center;
   justify-content: end;
+  overflow: hidden;
 
   ${desktop({
     alignItems: "center",
@@ -47,6 +48,7 @@ const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
+  overflow: hidden;
 `;
 const Hamburger = styled.div`
   margin-right: 3rem;
@@ -151,6 +153,55 @@ const SideLinks = styled.div`
   position: absolute;
   z-index: 99999;
 `;
+const Support = styled.div`
+  color: white;
+  background-color: #407bff;
+  border-radius: 25px;
+  margin: 1rem;
+  margin-right: 2rem;
+  width: 10rem;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  display: none;
+  cursor: pointer;
+  ${desktop({
+    display: "flex",
+  })}
+  &:hover {
+    transform: scale(1.1);
+    background-color: #205de2;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+`;
+const SupportMobile = styled.div`
+  color: white;
+  background-color: #407bff;
+  border-radius: 25px;
+  margin: 1rem;
+  margin-right: 2rem;
+  width: 20rem;
+  height: 4rem;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: #205de2;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 300;
+  }
+`;
 function TopBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
@@ -190,8 +241,10 @@ function TopBar() {
             <CustomLink to="/skills">My Skills</CustomLink>
             <CustomLink to="/projects">My projects</CustomLink>
             <CustomLink to="/about">About</CustomLink>
-            <CustomLink to="/support-me">Support</CustomLink>
           </NavList>
+          <Support>
+            <h2>Support me</h2>
+          </Support>
           <Hamburger
             onClick={() => {
               setMenuOpen(!menuOpen);
@@ -227,7 +280,9 @@ function TopBar() {
               <CustomLink to="/about">About</CustomLink>
             </li>
             <li>
-              <CustomLink to="/support-me">Support</CustomLink>
+              <SupportMobile>
+                <h2>Support me</h2>
+              </SupportMobile>
             </li>
           </ul>
         </SideLinks>
