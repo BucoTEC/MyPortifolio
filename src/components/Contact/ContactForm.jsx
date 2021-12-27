@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
+import emailjs from "emailjs-com";
 import { phone, tablet } from "../../utils/responsive.js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Wrapper = styled.div`
   height: 80vh;
   width: 100%;
@@ -28,7 +31,7 @@ const MainTitle = styled.div`
 `;
 const FormWrapper = styled.div`
   width: 90%;
-  height: 95%;
+  height: 100%;
   margin: auto;
   overflow: hidden;
   overflow: hidden;
@@ -49,7 +52,7 @@ const FormWrapper = styled.div`
         outline-style: none;
       }
       &::placeholder {
-        color: #263238;
+        color: #26323865;
         font-weight: 400;
       }
     }
@@ -59,11 +62,11 @@ const FormWrapper = styled.div`
       background-color: inherit;
       font-size: 1.5rem;
       width: 100%;
-      height: 11rem;
+      height: 12rem;
       resize: none;
-      margin-bottom: 1rem;
+      padding: 1rem 0;
       ${phone({
-        height: "17rem",
+        height: "15rem",
       })}
       &::-webkit-scrollbar {
         width: 10px;
@@ -92,57 +95,89 @@ const FormWrapper = styled.div`
         outline-style: none;
       }
       &::placeholder {
-        color: #263238;
+        color: #26323865;
         font-weight: 400;
       }
     }
-  }
-`;
-const Button = styled.div`
-  color: whitesmoke;
-  background-color: #407bff;
-  width: 50%;
-  border-radius: 50px;
-  height: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease-in;
-  cursor: pointer;
-  ${phone({
-    width: "100%",
-  })}
-
-  h1 {
-    font-weight: 400;
-    font-size: 1.7rem;
-    overflow: hidden;
-    transition: all 0.3s ease-in;
-    ${tablet({
-      fontSize: "2rem",
-    })}
-  }
-  &:hover {
-    background-color: #467cf3;
-    transform: scale(1.1);
-    box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
-    -webkit-box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
-    ${phone({
-      transform: "scale(1)",
-    })}
-    h1 {
-      transform: scale(1.1);
+    input[type="submit"] {
+      border: none;
+      color: whitesmoke;
+      background-color: #407bff;
+      width: 50%;
+      border-radius: 50px;
+      height: 4rem;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease-in;
+      cursor: pointer;
       ${phone({
-        transform: "scale(1)",
+        width: "100%",
       })}
+
+      &:hover {
+        background-color: #467cf3;
+        transform: scale(1.1);
+        box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
+        -webkit-box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
+        ${phone({
+          transform: "scale(1)",
+        })}
+      }
     }
   }
 `;
 
 function ContactForm() {
+  const success = () =>
+    toast.info("✉ successfully sent!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
+
+  const failSend = () => {
+    toast.error("Ups something went wrong!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_p71zuoc",
+        "template_p1k2bhf",
+        form.current,
+        "user_EPVFxWFUSc4QcMvCYOIBd"
+      )
+      .then(
+        (result) => {
+          success();
+          console.log(result.text);
+        },
+        (error) => {
+          failSend();
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  };
+
   return (
     <>
       <MainTitle>
@@ -150,17 +185,25 @@ function ContactForm() {
       </MainTitle>
       <Wrapper>
         <FormWrapper>
-          <form action="/">
-            <input type="text" placeholder="Your name" />
-            <input type="email" placeholder="Your email" />
-            <input type="text" placeholder="Title" />
-            <textarea name="" id="" placeholder="Your question ..."></textarea>
-            <Button>
-              <h1>Send</h1>
-            </Button>
+          <form ref={form} onSubmit={sendEmail}>
+            <input type="text" placeholder="Your name" name="name" required />
+            <input
+              type="email"
+              placeholder="Your email"
+              name="email"
+              required
+            />
+            <input type="text" placeholder="Title" name="title" required />
+            <textarea
+              placeholder="Your message"
+              name="message"
+              required
+            ></textarea>
+            <input type="submit" value="Send"></input>
           </form>
         </FormWrapper>
       </Wrapper>
+      <ToastContainer />
     </>
   );
 }
