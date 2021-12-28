@@ -136,7 +136,7 @@ const SideMenu = styled.div`
   backdrop-filter: blur(25px);
   background-color: rgba(255, 255, 255, 0.6);
   transform: translateX(${(props) => (props.isOpen ? "0" : "100%")});
-  transition: all 1.5s ease;
+  transition: all 1s ease;
 
   li {
     font-size: 3rem;
