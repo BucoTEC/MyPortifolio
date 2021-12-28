@@ -18,7 +18,7 @@ export const phone = (props) => {
 
 export const desktop = (props) => {
   return css`
-    @media only screen and (min-width: 1200px) {
+    @media only screen and (min-width: 1000px) {
       ${props}
     } ;
   `;

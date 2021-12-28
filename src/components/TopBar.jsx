@@ -5,7 +5,6 @@ import styled from "styled-components";
 import Navigatro from "../ui/Navigator";
 import { desktop, tablet } from "../utils/responsive.js";
 import CustomLink from "../ui/CustomLink";
-
 const TopNav = styled.div`
   height: 10vh;
   width: 100vw;
@@ -153,7 +152,8 @@ const SideLinks = styled.div`
   position: absolute;
   z-index: 99999;
 `;
-const Support = styled.div`
+const Support = styled.a`
+  text-decoration: none;
   color: white;
   background-color: #407bff;
   border-radius: 25px;
@@ -178,12 +178,12 @@ const Support = styled.div`
     font-size: 1rem;
   }
 `;
-const SupportMobile = styled.div`
+const SupportMobile = styled.a`
+  text-decoration: none;
   color: white;
   background-color: #407bff;
   border-radius: 25px;
-  margin: 1rem;
-  margin-right: 2rem;
+  margin-top: 1rem;
   width: 20rem;
   height: 4rem;
   justify-content: center;
@@ -242,7 +242,7 @@ function TopBar() {
             <CustomLink to="/projects">My projects</CustomLink>
             <CustomLink to="/about">About</CustomLink>
           </NavList>
-          <Support>
+          <Support href="https://donorbox.org/btech-donate" target="_blank">
             <h2>Support me</h2>
           </Support>
           <Hamburger
@@ -280,7 +280,10 @@ function TopBar() {
               <CustomLink to="/about">About</CustomLink>
             </li>
             <li>
-              <SupportMobile>
+              <SupportMobile
+                href="https://donorbox.org/btech-donate"
+                target="_blank"
+              >
                 <h2>Support me</h2>
               </SupportMobile>
             </li>
