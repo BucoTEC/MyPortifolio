@@ -7,6 +7,7 @@ import ScrollToTop from "react-scroll-to-top";
 import styled from "styled-components";
 import TopPosition from "../utils/TopPosition";
 import { phone } from "../utils/responsive";
+import AnimatePage from "../utils/AnimatePage";
 const Wrapper = styled.div`
   max-width: 71rem;
   margin: auto;
@@ -19,20 +20,22 @@ const Wrapper = styled.div`
 function Home() {
   return (
     <>
-      <TopPosition />
-      <Wrapper>
-        <ScrollToTop
-          smooth={true}
-          color="#407bff"
-          top={1000}
-          style={{ width: "4rem", height: "4rem" }}
-        />
+      <AnimatePage>
+        <TopPosition />
+        <Wrapper>
+          <ScrollToTop
+            smooth={true}
+            color="#407bff"
+            top={1000}
+            style={{ width: "4rem", height: "4rem" }}
+          />
 
-        <MainLanding />
-        <SkllisIntro />
-        <ProjectsIntro />
-        <ContactIntro />
-      </Wrapper>
+          <MainLanding />
+          <SkllisIntro />
+          <ProjectsIntro />
+          <ContactIntro />
+        </Wrapper>
+      </AnimatePage>
     </>
   );
 }

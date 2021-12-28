@@ -8,7 +8,7 @@ import Express from "../components/Skills/Express";
 import ReactIntro from "../components/Skills/ReactIntro";
 import Node from "../components/Skills/Node";
 import ScrollToTop from "react-scroll-to-top";
-
+import AnimatePage from "../utils/AnimatePage";
 const Wrapper = styled.div`
   max-width: 71rem;
   margin: auto;
@@ -20,20 +20,22 @@ const Wrapper = styled.div`
 `;
 function Skills() {
   return (
-    <Wrapper>
-      <TopPosition />
-      <ScrollToTop
-        smooth={true}
-        color="#407bff"
-        top={1000}
-        style={{ width: "4rem", height: "4rem" }}
-      />
-      <Main />
-      <Mongo />
-      <Express />
-      <ReactIntro />
-      <Node />
-    </Wrapper>
+    <AnimatePage>
+      <Wrapper>
+        <TopPosition />
+        <ScrollToTop
+          smooth={true}
+          color="#407bff"
+          top={1000}
+          style={{ width: "4rem", height: "4rem" }}
+        />
+        <Main />
+        <Mongo />
+        <Express />
+        <ReactIntro />
+        <Node />
+      </Wrapper>
+    </AnimatePage>
   );
 }
 

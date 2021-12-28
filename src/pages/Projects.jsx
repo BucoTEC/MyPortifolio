@@ -1,10 +1,10 @@
 import React from "react";
-
+import AnimatePage from "../utils/AnimatePage";
 function Projects() {
   return (
-    <div>
+    <AnimatePage>
       <h1>this is my projects page</h1>
-    </div>
+    </AnimatePage>
   );
 }
 
