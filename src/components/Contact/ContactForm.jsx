@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import emailjs from "emailjs-com";
 import { phone, tablet } from "../../utils/responsive.js";
@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import LoadingIcon from "../../assets/loading.svg";
 
 const Wrapper = styled.div`
   height: 80vh;
@@ -13,6 +14,9 @@ const Wrapper = styled.div`
   overflow: hidden;
   position: relative;
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   ${tablet({
     height: "50vh",
   })}
@@ -134,8 +138,23 @@ const FormWrapper = styled.div`
     }
   }
 `;
-
+const LoadingSvg = styled.img`
+  height: 20%;
+  animation: spin 1s linear infinite;
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
 function ContactForm() {
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
@@ -163,7 +182,7 @@ function ContactForm() {
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
-
+    setLoading(true);
     emailjs
       .sendForm(
         "service_p71zuoc",
@@ -175,10 +194,12 @@ function ContactForm() {
         (result) => {
           success();
           console.log(result.text);
+          setLoading(false);
         },
         (error) => {
           failSend();
           console.log(error.text);
+          setLoading(false);
         }
       );
     e.target.reset();
@@ -190,24 +211,28 @@ function ContactForm() {
         <h1>Contact me</h1>
       </MainTitle>
       <Wrapper>
-        <FormWrapper data-aos="fade-up">
-          <form ref={form} onSubmit={sendEmail}>
-            <input type="text" placeholder="Your name" name="name" required />
-            <input
-              type="email"
-              placeholder="Your email"
-              name="email"
-              required
-            />
-            <input type="text" placeholder="Title" name="title" required />
-            <textarea
-              placeholder="Your message"
-              name="message"
-              required
-            ></textarea>
-            <input type="submit" value="Send"></input>
-          </form>
-        </FormWrapper>
+        {loading ? (
+          <LoadingSvg src={LoadingIcon} />
+        ) : (
+          <FormWrapper data-aos="fade-up">
+            <form ref={form} onSubmit={sendEmail}>
+              <input type="text" placeholder="Your name" name="name" required />
+              <input
+                type="email"
+                placeholder="Your email"
+                name="email"
+                required
+              />
+              <input type="text" placeholder="Title" name="title" required />
+              <textarea
+                placeholder="Your message"
+                name="message"
+                required
+              ></textarea>
+              <input type="submit" value="Send"></input>
+            </form>
+          </FormWrapper>
+        )}
       </Wrapper>
       <ToastContainer />
     </div>
