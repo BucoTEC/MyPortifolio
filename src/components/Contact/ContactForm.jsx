@@ -37,17 +37,17 @@ const MainTitle = styled.div`
   }
 `;
 const FormWrapper = styled.div`
-  width: 90%;
   height: 100%;
+  width: 90%;
   margin: auto;
   overflow: hidden;
   overflow: hidden;
   form {
     display: flex;
     flex-direction: column;
+    height: 100%;
     width: 80%;
     margin: auto;
-    margin-top: 1rem;
     input {
       border: none;
       margin: 1rem 0;
@@ -118,7 +118,7 @@ const FormWrapper = styled.div`
       justify-content: center;
       align-items: center;
       margin: auto;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       transition: all 0.3s ease-in;
       cursor: pointer;
       ${phone({
@@ -206,7 +206,7 @@ function ContactForm() {
   };
 
   return (
-    <div>
+    <>
       <MainTitle data-aos="fade-up">
         <h1>Contact me</h1>
       </MainTitle>
@@ -235,7 +235,7 @@ function ContactForm() {
         )}
       </Wrapper>
       <ToastContainer />
-    </div>
+    </>
   );
 }
 

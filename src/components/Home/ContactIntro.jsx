@@ -141,7 +141,7 @@ function ContactIntro() {
         </MainImg>
       </Top>
       <Bottom>
-        <Navigatro to="/contact">
+        <Navigatro to="/contact" style={{ padding: "2rem" }}>
           <Button>
             <h1>Contact me</h1>
           </Button>

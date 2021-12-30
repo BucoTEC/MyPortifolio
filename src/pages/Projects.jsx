@@ -19,6 +19,7 @@ const Wrapper = styled.div`
 
   h1 {
     margin: 1rem;
+    color: #59b1d6;
   }
 `;
 
@@ -28,10 +29,10 @@ const ImgWrapper = styled.div`
     width: 100%;
     display: block;
     margin: auto;
-
+    max-height: 100%;
     ${desktop({
       height: "100%",
-    })}
+    })};
   }
 `;
 function Projects() {
