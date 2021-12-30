@@ -1,20 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import Navigatro from "./Navigator";
 const Wrapper = styled.div`
   width: 100%;
-  height: 20vh;
-  background-color: lightgray;
+  height: 12vh;
+  background-color: #d3d3d38f;
   display: flex;
   justify-content: start;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 3rem;
 
   p {
-    margin-left: 0.7rem;
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 300;
     color: #5a5656;
+  }
+  #mali {
+    font-size: 1rem;
   }
   overflow: hidden;
 `;
@@ -32,9 +33,8 @@ function Footer() {
   return (
     <Wrapper>
       <BasicLogo>
-        <Navigatro to="/">
-          <h1>&lt; B &gt;</h1>
-        </Navigatro>
+        <p>+387 62 006 212</p>
+        <p id="mali">adnan.bucalovic13@gmail.com</p>
       </BasicLogo>
     </Wrapper>
   );

@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import cloudSvg from "../../assets/cloud.svg";
-import { init } from "ityped";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { desktop, tablet, phone } from "../../utils/responsive";
@@ -133,7 +132,7 @@ const InfoText = styled.div`
   flex: 1;
   span {
     font-size: 2.5rem;
-    font-weight: 500;
+    font-weight: 400;
   }
   ${phone({
     height: "9rem",
@@ -143,20 +142,8 @@ const InfoText = styled.div`
   })}
 `;
 function ProjectsIntro() {
-  const textRef = useRef();
   useEffect(() => {
     Aos.init({ duration: 2000 });
-  }, []);
-  useEffect(() => {
-    init(textRef.current, {
-      backDelay: 1800,
-      showCursor: false,
-      strings: [
-        "7.9 Million Online Retailers in the world",
-        " 730  billion USD being spent online each year",
-        " 4.66 billion active internet users worldwide",
-      ],
-    });
   }, []);
 
   return (
@@ -174,8 +161,8 @@ function ProjectsIntro() {
         </MainImg>
       </Top>
       <Bottom>
-        <InfoText>
-          <span ref={textRef}></span>
+        <InfoText data-aos="fade-down">
+          <span> 4.7 Billion active internet users</span>
         </InfoText>
         <ButtonContainer>
           <Navigatro to="/projects">

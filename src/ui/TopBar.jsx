@@ -240,7 +240,7 @@ function TopBar() {
             <CustomLink to="/contact">Contact</CustomLink>
             <CustomLink to="/skills">My Skills</CustomLink>
             <CustomLink to="/projects">My projects</CustomLink>
-            <CustomLink to="/about">About</CustomLink>
+            {/* <CustomLink to="/about">About</CustomLink> */}
           </NavList>
           <Support href="https://donorbox.org/btech-donate" target="_blank">
             <h2>Support me</h2>
@@ -276,9 +276,7 @@ function TopBar() {
             <li>
               <CustomLink to="/projects">My projects</CustomLink>
             </li>
-            <li>
-              <CustomLink to="/about">About</CustomLink>
-            </li>
+            <li>{/* <CustomLink to="/about">About</CustomLink> */}</li>
             <li>
               <SupportMobile
                 href="https://donorbox.org/btech-donate"
