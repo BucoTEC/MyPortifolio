@@ -58,9 +58,10 @@ const Right = styled.div`
     })}
   }
   h2 {
+    font-size: 2rem;
     font-weight: 200;
     text-align: center;
-    width: 70%;
+    width: 90%;
   }
 `;
 const Vertical = styled.div`
@@ -83,7 +84,6 @@ function Mongo() {
         <h1>MongoDB</h1>
         <h2>
           Document database with the scalability and flexibility that you want
-          with the querying and indexing that you need
         </h2>
       </Right>
     </Wrapper>

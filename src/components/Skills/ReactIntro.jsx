@@ -51,7 +51,7 @@ const Right = styled.div`
     flex: "1.4",
   })}
   h1 {
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: 300;
     ${desktop({
       fontSize: "7rem",
@@ -61,6 +61,7 @@ const Right = styled.div`
     font-weight: 200;
     text-align: center;
     width: 70%;
+    font-size: 2rem;
   }
 `;
 const Vertical = styled.div`

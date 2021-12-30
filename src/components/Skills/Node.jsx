@@ -51,9 +51,9 @@ const Right = styled.div`
   h2 {
     font-weight: 200;
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 2rem;
 
-    width: 70%;
+    width: 90%;
   }
 `;
 const Vertical = styled.div`
