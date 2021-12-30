@@ -39,7 +39,7 @@ function Skills() {
         <BottomNav
           leftUrl={"/contact"}
           leftText={"Contact Me"}
-          rightUrl={"/projects/*"}
+          rightUrl={"/projects"}
           rightText={"My Projects"}
         />
       </Wrapper>

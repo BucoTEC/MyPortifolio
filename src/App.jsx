@@ -2,7 +2,6 @@ import Home from "./pages/Home";
 import TopBar from "./ui/TopBar";
 import Footer from "./ui/Footer";
 import { Routes, Route, useLocation } from "react-router-dom";
-import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
@@ -22,9 +21,8 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/projects/*" element={<Projects />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/skills" element={<Skills />} />
-          <Route path="/about" element={<About />} />
         </Routes>
       </AnimatePresence>
       <Footer />
