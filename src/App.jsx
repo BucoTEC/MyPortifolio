@@ -1,6 +1,6 @@
 import Home from "./pages/Home";
-import TopBar from "./components/TopBar";
-import Footer from "./components/Footer";
+import TopBar from "./ui/TopBar";
+import Footer from "./ui/Footer";
 import { Routes, Route, useLocation } from "react-router-dom";
 import About from "./pages/About";
 import Contact from "./pages/Contact";

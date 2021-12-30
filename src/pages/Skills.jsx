@@ -9,8 +9,10 @@ import ReactIntro from "../components/Skills/ReactIntro";
 import Node from "../components/Skills/Node";
 import ScrollToTop from "react-scroll-to-top";
 import AnimatePage from "../utils/AnimatePage";
+import BottomNav from "../ui/BottomNav";
 const Wrapper = styled.div`
   max-width: 71rem;
+  overflow: hidden;
   margin: auto;
     ${phone({
       width: "100%",
@@ -34,6 +36,12 @@ function Skills() {
         <Express />
         <ReactIntro />
         <Node />
+        <BottomNav
+          leftUrl={"/contact"}
+          leftText={"Contact Me"}
+          rightUrl={"/projects/*"}
+          rightText={"My Projects"}
+        />
       </Wrapper>
     </AnimatePage>
   );

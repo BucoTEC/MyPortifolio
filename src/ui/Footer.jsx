@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Navigatro from "../ui/Navigator";
+import Navigatro from "./Navigator";
 const Wrapper = styled.div`
   width: 100%;
   height: 20vh;

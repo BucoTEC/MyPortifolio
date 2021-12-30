@@ -2,9 +2,9 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import Navigatro from "../ui/Navigator";
+import Navigatro from "./Navigator";
 import { desktop, tablet } from "../utils/responsive.js";
-import CustomLink from "../ui/CustomLink";
+import CustomLink from "./CustomLink";
 const TopNav = styled.div`
   height: 10vh;
   width: 100vw;
