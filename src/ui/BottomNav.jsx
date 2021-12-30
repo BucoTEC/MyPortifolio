@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Navigatro from "./Navigator";
 import { desktop } from "../utils/responsive";
+import Aos from "aos";
+import "aos/dist/aos.css";
 const Wrapper = styled.div`
   width: 100%;
   margin: auto;
@@ -36,16 +38,29 @@ const Left = styled.div`
   justify-content: center;
 `;
 function BottomNav(props) {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <>
       <Wrapper>
         <Left>
-          <Navigatro style={{ color: "#205DE2" }} to={props.leftUrl}>
+          <Navigatro
+            style={{ color: "#205DE2" }}
+            to={props.leftUrl}
+            data-aos="fade-right"
+            data-aos-duration="300"
+          >
             <h2>&lt; {props.leftText}</h2>
           </Navigatro>
         </Left>
         <Right>
-          <Navigatro style={{ color: "#205DE2" }} to={props.rightUrl}>
+          <Navigatro
+            style={{ color: "#205DE2" }}
+            to={props.rightUrl}
+            data-aos="fade-left"
+            data-aos-duration="300"
+          >
             <h2>{props.rightText} &gt;</h2>
           </Navigatro>
         </Right>
