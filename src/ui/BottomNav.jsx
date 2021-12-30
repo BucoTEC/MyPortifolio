@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import "aos/dist/aos.css";
 import Navigatro from "./Navigator";
 import { desktop } from "../utils/responsive";
 const Wrapper = styled.div`
@@ -39,7 +38,7 @@ const Left = styled.div`
 function BottomNav(props) {
   return (
     <>
-      <Wrapper data-aos="fade-up">
+      <Wrapper>
         <Left>
           <Navigatro style={{ color: "#205DE2" }} to={props.leftUrl}>
             <h2>&lt; {props.leftText}</h2>
