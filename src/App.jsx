@@ -8,6 +8,7 @@ import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 import styled from "styled-components";
 import { AnimatePresence } from "framer-motion";
+import NotFound from "./pages/NotFound";
 const Wrapper = styled.div`
   width: 100vw;
 `;
@@ -18,6 +19,7 @@ function App() {
       <TopBar />
       <AnimatePresence>
         <Routes key={location.key} location={location}>
+          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects/*" element={<Projects />} />

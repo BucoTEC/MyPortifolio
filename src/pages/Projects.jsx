@@ -10,6 +10,8 @@ import NotWorking from "../assets/workInProgres.svg";
 const Wrapper = styled.div`
   max-width: 30rem;
   margin: auto;
+ height: 80vh;
+
     ${phone({
       width: "100%",
     })}
