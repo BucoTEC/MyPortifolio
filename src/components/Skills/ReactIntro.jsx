@@ -51,6 +51,8 @@ const Right = styled.div`
     flex: "1.4",
   })}
   h1 {
+    overflow: hidden;
+
     font-size: 6rem;
     font-weight: 300;
     ${desktop({
@@ -58,6 +60,8 @@ const Right = styled.div`
     })}
   }
   h2 {
+    overflow: hidden;
+
     font-weight: 200;
     text-align: center;
     width: 70%;

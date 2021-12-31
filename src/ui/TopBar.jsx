@@ -29,6 +29,7 @@ const Right = styled.div`
   ${desktop({
     alignItems: "center",
     justifyContent: "start",
+    marginTop: "0",
   })}
 `;
 const NavList = styled.ul`

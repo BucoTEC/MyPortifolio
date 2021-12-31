@@ -7,7 +7,7 @@ import desktopSvg from "../../assets/bigMain.svg";
 import tabletSvg from "../../assets/tabletMain.svg";
 const Wrapper = styled.div`
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   background-color: #f8ffff;
   position: relative;
   overflow: hidden;

@@ -2,7 +2,7 @@ import { css } from "styled-components";
 
 export const tablet = (props) => {
   return css`
-    @media only screen and (min-width: 430px) and (max-width: 1200px) {
+    @media only screen and (min-width: 430px) and (max-width: 1200px) and (orientation: landscape) {
       ${props}
     } ;
   `;

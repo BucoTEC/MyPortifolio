@@ -30,12 +30,14 @@ const Right = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 `;
 const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 `;
 function BottomNav(props) {
   useEffect(() => {
