@@ -10,6 +10,7 @@ const Navigatro = styled(Link)`
   &:link,
   &:active {
     text-decoration: none;
+    color: none;
   }
   color: black;
 `;
