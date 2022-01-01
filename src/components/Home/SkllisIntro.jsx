@@ -156,7 +156,7 @@ function SkllisIntro() {
       </Top>
       <Bottom>
         <SubText>
-          <h2>These are core values I implemetn</h2>
+          <h2>These are core values I implement</h2>
           <h2>in all of my projects. Im here to make</h2>
           <h1 id="gornji">Your problems </h1>
           <h1>disapear</h1>
