@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
   position: relative;
-  margin-top: 1rem;
+  padding-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,6 +35,10 @@ const MainTitle = styled.div`
     ${phone({
       fontSize: "4rem",
     })}
+  }
+
+  @media (orientation: landscape) {
+    padding: 1.5rem;
   }
 `;
 const FormWrapper = styled.div`

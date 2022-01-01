@@ -41,7 +41,7 @@ const Left = styled.div`
 `;
 const Right = styled.div`
   flex: 1;
-  height: 80%;
+  height: 90%;
   display: flex;
   align-items: center;
   justify-content: start;

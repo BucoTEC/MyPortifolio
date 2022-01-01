@@ -12,6 +12,9 @@ const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
   margin-bottom: 4rem;
+  ${tablet({
+    height: "80vh",
+  })}
 `;
 //main floating widow
 const DevDesc = styled.div`
