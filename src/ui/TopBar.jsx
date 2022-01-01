@@ -10,6 +10,9 @@ const TopNav = styled.div`
   width: 100vw;
   text-align: center;
   display: flex;
+  @media screen and (orientation: landscape) {
+    margin-top: 1rem;
+  }
   &:hover #nastavak {
     opacity: 1;
     transform: translateX(0);
@@ -137,8 +140,10 @@ const SideMenu = styled.div`
   backdrop-filter: blur(25px);
   background-color: rgba(255, 255, 255, 0.6);
   transform: translateX(${(props) => (props.isOpen ? "0" : "100%")});
-  transition: all 1s ease;
-
+  transition: all 0.6s ease;
+  @media screen and (orientation: landscape) {
+    top: 1rem;
+  }
   li {
     font-size: 3rem;
     margin: 2rem;

@@ -35,7 +35,6 @@ const Bottom = styled.div`
   justify-content: center;
   overflow: hidden;
   margin-top: -3rem;
-  z-index: 2;
   ${desktop({
     padding: "1rem",
   })}

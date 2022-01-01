@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 import LoadingIcon from "../../assets/loading.svg";
 
 const Wrapper = styled.div`
+  min-height: 33rem;
   height: 80vh;
   width: 100%;
   overflow: hidden;

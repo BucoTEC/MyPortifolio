@@ -11,11 +11,9 @@ import AnimatePage from "../utils/AnimatePage";
 const Wrapper = styled.div`
   max-width: 71rem;
   margin: auto;
-    ${phone({
-      width: "100%",
-    })}
-    
-  }
+  ${phone({
+    width: "100%",
+  })}
 `;
 function Home() {
   return (
