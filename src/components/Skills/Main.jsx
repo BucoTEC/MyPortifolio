@@ -5,7 +5,7 @@ import MernSmall from "../../assets/MernSmall.svg";
 import { desktop } from "../../utils/responsive.js";
 const Wrapper = styled.div`
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   overflow: hidden;
 `;
 

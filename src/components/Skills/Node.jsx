@@ -6,7 +6,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 const Wrapper = styled.div`
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   overflow: hidden;
   margin-top: 4rem;
 

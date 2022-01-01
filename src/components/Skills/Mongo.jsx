@@ -4,7 +4,7 @@ import { desktop } from "../../utils/responsive.js";
 import MongoLogo from "../../assets/Mongo.svg";
 const Wrapper = styled.div`
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   overflow: hidden;
   margin-top: 4rem;
   display: flex;

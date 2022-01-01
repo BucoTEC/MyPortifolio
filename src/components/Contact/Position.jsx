@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import eu from "../../assets/smallEU.svg";
-import { phone, desktop } from "../../utils/responsive";
+import { phone, desktop, tablet } from "../../utils/responsive";
 import Arrow from "../../assets/downArrow.svg";
 
 const Wrapper = styled.div`
@@ -9,6 +9,10 @@ const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
   position: relative;
+
+  ${tablet({
+    minHeight: "50rem",
+  })}
 `;
 
 const Text = styled.div`
