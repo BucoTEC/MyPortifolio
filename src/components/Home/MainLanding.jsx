@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   overflow: hidden;
   margin-bottom: 4rem;
   ${phone({
-    height: "85vh",
+    height: "90vh",
   })}
 `;
 //main floating widow
