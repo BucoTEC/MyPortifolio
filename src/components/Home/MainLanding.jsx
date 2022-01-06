@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import mainSvg from "../../assets/main.svg";
 import { init } from "ityped";
-import { desktop, tablet } from "../../utils/responsive";
+import { desktop, tablet, phone } from "../../utils/responsive";
 import desktopSvg from "../../assets/bigMain.svg";
 import tabletSvg from "../../assets/tabletMain.svg";
 const Wrapper = styled.div`
@@ -12,6 +12,9 @@ const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
   margin-bottom: 4rem;
+  ${phone({
+    height: "85vh",
+  })}
 `;
 //main floating widow
 const DevDesc = styled.div`
