@@ -119,9 +119,9 @@ function MainLanding() {
               <span>Hi,</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/&gt;
             </h1>
             <h1>
-              im <span>Adnan</span>
+              I'm <span>Adnan</span>
             </h1>
-            <h1>i build</h1>
+            <h1>I build</h1>
             <h1>
               <span ref={textRef}></span>
             </h1>
