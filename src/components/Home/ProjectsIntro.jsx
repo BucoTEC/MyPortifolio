@@ -65,7 +65,7 @@ const MainImg = styled.div`
 
 const CloudImg = styled.img`
   height: 100%;
-  max-height: 30rem;
+  max-height: 20rem;
   ${desktop({
     height: "80%",
     marginLeft: "3rem",

@@ -41,6 +41,7 @@ const LaptopImg = styled.img`
   padding: 1rem;
   width: 68%;
   float: right;
+  max-height: 20rem;
   ${desktop({
     width: "100%",
   })}

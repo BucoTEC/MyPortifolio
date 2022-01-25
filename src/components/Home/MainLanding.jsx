@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
   margin-bottom: 4rem;
+  max-height: 750px;
 `;
 //main floating widow
 const DevDesc = styled.div`
