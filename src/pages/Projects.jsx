@@ -8,11 +8,11 @@ import { useEffect, useState } from "react";
 import BottomNav from "../ui/BottomNav";
 import LoadingIcon from "../assets/loading.svg";
 import axios from "axios";
-
+import ProjectCard from "../ui/ProjectCard";
 const Wrapper = styled.div`
   max-width: 71rem;
   margin: auto;
-  height: 90vh;
+  min-height: 90vh;
   text-align: center;
   overflow: hidden;
   ${phone({
@@ -42,7 +42,12 @@ const LoadingSvg = styled.img`
 `;
 
 const ProjectsList = styled.ul`
-  height: 80%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: show;
+  margin-bottom: 2rem;
 `;
 
 function Projects() {
@@ -81,7 +86,9 @@ function Projects() {
         ) : (
           <ProjectsList>
             {projects.map((x) => (
-              <li key={x._id}>{x.title}</li>
+              <li key={x._id}>
+                <ProjectCard title={x.title} img={x.img} />
+              </li>
             ))}
           </ProjectsList>
         )}
