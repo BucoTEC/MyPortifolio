@@ -4,18 +4,19 @@ const Container = styled.div`
   width: 20rem;
   height: 25rem;
   border: 1px solid grey;
-  margin: 1.5rem 0;
+  margin: 2.1rem 1.5rem;
   border-radius: 10px;
   transition: 0.7s all ease;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  overflow: hidden;
 
-  &:hover {
-    -webkit-box-shadow: 0px 10px 13px -7px #000000,
-      5px 5px 15px 5px rgba(0, 0, 0, 0);
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  @media screen and (min-width: 1200px) {
+    &:hover {
+      -webkit-box-shadow: 0px 10px 13px -7px #000000,
+        5px 5px 15px 5px rgba(0, 0, 0, 0);
+      box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 
-    transform: scale(1.1);
+      transform: scale(1.1);
+    }
   }
 
   img {
@@ -30,13 +31,20 @@ const Container = styled.div`
     font-weight: 300;
   }
 `;
+
+const GoTo = styled.a`
+  text-decoration: none;
+  /* margin: 1rem; */
+`;
 function ProjectCard(props) {
   return (
-    <Container>
-      <img src={props.img} alt="No img" />
-      <div></div>
-      <h1>{props.title}</h1>
-    </Container>
+    <GoTo href={props.url} target="_blank">
+      <Container>
+        <img src={props.img} alt="No img" />
+        <div></div>
+        <h1>{props.title}</h1>
+      </Container>
+    </GoTo>
   );
 }
 

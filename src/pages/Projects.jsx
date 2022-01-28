@@ -21,12 +21,13 @@ const Wrapper = styled.div`
 
   h1 {
     margin: 1rem;
-    color: #59b1d6;
+    /* color: #59b1d6; */
+    color: black;
   }
 `;
 
 const LoadingSvg = styled.img`
-  height: 90%;
+  height: 20rem;
   animation: spin 1s linear infinite;
   @keyframes spin {
     0% {
@@ -42,7 +43,7 @@ const LoadingSvg = styled.img`
 `;
 
 const ProjectsList = styled.ul`
-  min-height: 80vh;
+  min-height: 90vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -55,25 +56,29 @@ function Projects() {
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState("all");
   useEffect(() => {
-    Aos.init();
+    Aos.init({ duration: 2000 });
+
     const fetchProjects = async () => {
       try {
-        const result = await axios.get(`http://localhost:5000/?cat=${filter}`);
+        setLoading(true);
+        const result = await axios.get(
+          `http://btech-solutions-projects-api.herokuapp.com/?cat=${filter}`
+        );
         setProjects(result.data);
+        setLoading(false);
       } catch (err) {
+        setLoading(false);
         return <h1>Something went wrong. {err.message}</h1>;
       }
     };
-    setLoading(true);
     fetchProjects();
-    setLoading(false);
   }, [filter]);
   const filterHandler = (e) => {
     setFilter(e.target.value);
   };
   return (
     <AnimatePage>
-      <Wrapper data-aos="animation_name">
+      <Wrapper>
         <select onChange={filterHandler}>
           <option value="all">all</option>
 
@@ -84,13 +89,19 @@ function Projects() {
         {loading ? (
           <LoadingSvg src={LoadingIcon} />
         ) : (
-          <ProjectsList>
-            {projects.map((x) => (
-              <li key={x._id}>
-                <ProjectCard title={x.title} img={x.img} />
-              </li>
-            ))}
-          </ProjectsList>
+          <>
+            <ProjectsList>
+              {projects.map((x) => (
+                <ProjectCard
+                  key={x._id}
+                  title={x.title}
+                  img={x.img}
+                  url={x.url}
+                  data-aos="fade-up"
+                />
+              ))}
+            </ProjectsList>
+          </>
         )}
 
         <BottomNav
