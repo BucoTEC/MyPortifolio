@@ -1,12 +1,14 @@
 import React from "react";
 import AnimatePage from "../utils/AnimatePage";
 import styled from "styled-components";
-import { phone, desktop } from "../utils/responsive";
-import logo from "../assets/workInProgres.svg";
+import { phone } from "../utils/responsive";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import BottomNav from "../ui/BottomNav";
+import LoadingIcon from "../assets/loading.svg";
+import axios from "axios";
+
 const Wrapper = styled.div`
   max-width: 71rem;
   margin: auto;
@@ -23,29 +25,67 @@ const Wrapper = styled.div`
   }
 `;
 
-const ImgWrapper = styled.div`
-  height: 80%;
-  img {
-    width: 100%;
-    display: block;
-    margin: auto;
-    max-height: 100%;
-    ${desktop({
-      height: "100%",
-    })};
+const LoadingSvg = styled.img`
+  height: 90%;
+  animation: spin 1s linear infinite;
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 `;
+
+const ProjectsList = styled.ul`
+  height: 80%;
+`;
+
 function Projects() {
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [filter, setFilter] = useState("all");
   useEffect(() => {
     Aos.init();
-  }, []);
+    const fetchProjects = async () => {
+      try {
+        const result = await axios.get(`http://localhost:5000/?cat=${filter}`);
+        setProjects(result.data);
+      } catch (err) {
+        return <h1>Something went wrong. {err.message}</h1>;
+      }
+    };
+    setLoading(true);
+    fetchProjects();
+    setLoading(false);
+  }, [filter]);
+  const filterHandler = (e) => {
+    setFilter(e.target.value);
+  };
   return (
     <AnimatePage>
       <Wrapper data-aos="animation_name">
-        <h1>Work in progress</h1>
-        <ImgWrapper>
-          <img src={logo} alt="" />
-        </ImgWrapper>
+        <select onChange={filterHandler}>
+          <option value="all">all</option>
+
+          <option value="full">full</option>
+          <option value="back">back</option>
+          <option value="front">front</option>
+        </select>
+        {loading ? (
+          <LoadingSvg src={LoadingIcon} />
+        ) : (
+          <ProjectsList>
+            {projects.map((x) => (
+              <li key={x._id}>{x.title}</li>
+            ))}
+          </ProjectsList>
+        )}
+
         <BottomNav
           leftUrl={"/"}
           leftText={"Home"}
