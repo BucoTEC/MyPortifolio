@@ -7,12 +7,15 @@ const Container = styled.div`
   border-radius: 10px;
   transition: 0.7s all ease;
   margin: 2.1rem 1.5rem;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 
   @media screen and (min-width: 1200px) {
     &:hover {
-      -webkit-box-shadow: 0px 10px 13px -7px #000000,
+      -webkit-box-shadow: 0px 15px 13px -7px #000000,
         5px 5px 15px 5px rgba(0, 0, 0, 0);
-      box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+      box-shadow: 0px 15px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 
       transform: scale(1.1);
     }
@@ -33,6 +36,7 @@ const Container = styled.div`
 
 const GoTo = styled.a`
   text-decoration: none;
+  color: black;
   /* margin: 1rem; */
 `;
 function ProjectCard(props) {
@@ -42,6 +46,7 @@ function ProjectCard(props) {
         <img src={props.img} alt="No img" />
         <div></div>
         <h1>{props.title}</h1>
+        <p>{props.desc}</p>
       </GoTo>
     </Container>
   );

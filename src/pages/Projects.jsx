@@ -9,6 +9,8 @@ import BottomNav from "../ui/BottomNav";
 import LoadingIcon from "../assets/loading.svg";
 import axios from "axios";
 import ProjectCard from "../ui/ProjectCard";
+import ScrollToTop from "react-scroll-to-top";
+
 const Wrapper = styled.div`
   max-width: 71rem;
   margin: auto;
@@ -84,15 +86,21 @@ function Projects() {
   return (
     <AnimatePage>
       <Wrapper data-aos="animation-name">
+        <ScrollToTop
+          smooth={true}
+          color="#407bff"
+          top={1000}
+          style={{ width: "4rem", height: "4rem" }}
+        />
         <Filter>
           <select
             onChange={filterHandler}
             style={{ width: "150px", marginTop: "2rem" }}
           >
             <option value="all">All</option>
-            <option value="full">Full</option>
-            <option value="back">Back</option>
-            <option value="front">Front</option>
+            <option value="full">Full-Stack</option>
+            <option value="back">Backend</option>
+            <option value="front">Frontend</option>
           </select>
         </Filter>
 
@@ -107,6 +115,7 @@ function Projects() {
                   title={x.title}
                   img={x.img}
                   url={x.url}
+                  desc={x.desc}
                 />
               ))}
             </ProjectsList>
