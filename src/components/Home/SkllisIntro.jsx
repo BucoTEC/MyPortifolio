@@ -23,6 +23,7 @@ const Wrapper = styled.div`
 const MainText = styled.div`
   width: 100%;
   padding: 1rem;
+  overflow: hidden;
   h1 {
     font-size: 3.8rem;
     font-weight: 400;

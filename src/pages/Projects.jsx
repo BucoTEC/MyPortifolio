@@ -50,6 +50,24 @@ const ProjectsList = styled.ul`
   overflow: show;
   margin-bottom: 2rem;
 `;
+const Filter = styled.div`
+  min-height: 10vh;
+  width: 100%;
+`;
+
+const FilterOption = styled.select`
+  margin: 1rem;
+  background-color: #407bff;
+  color: white;
+  padding: 12px;
+  width: 190px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+`;
 
 function Projects() {
   const [projects, setProjects] = useState([]);
@@ -79,13 +97,15 @@ function Projects() {
   return (
     <AnimatePage>
       <Wrapper>
-        <select onChange={filterHandler}>
-          <option value="all">all</option>
+        <Filter>
+          <FilterOption onChange={filterHandler} className="box">
+            <option value="all">All</option>
+            <option value="full">Full</option>
+            <option value="back">Back</option>
+            <option value="front">Front</option>
+          </FilterOption>
+        </Filter>
 
-          <option value="full">full</option>
-          <option value="back">back</option>
-          <option value="front">front</option>
-        </select>
         {loading ? (
           <LoadingSvg src={LoadingIcon} />
         ) : (
