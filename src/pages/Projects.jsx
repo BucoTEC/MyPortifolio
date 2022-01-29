@@ -120,6 +120,12 @@ function Projects() {
                 // />
                 <h1 key={x._id}>{x.title}</h1>
               ))}
+              <ProjectCard
+                key={1111}
+                title={"test"}
+                img={"test"}
+                url={"test"}
+              />
             </ProjectsList>
           </>
         )}
