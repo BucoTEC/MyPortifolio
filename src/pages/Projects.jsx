@@ -85,7 +85,10 @@ function Projects() {
     <AnimatePage>
       <Wrapper data-aos="animation-name">
         <Filter>
-          <select onChange={filterHandler} className="box">
+          <select
+            onChange={filterHandler}
+            style={{ width: "150px", marginTop: "2rem" }}
+          >
             <option value="all">All</option>
             <option value="full">Full</option>
             <option value="back">Back</option>
