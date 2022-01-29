@@ -103,15 +103,19 @@ function Projects() {
       const result = await fetch(
         `http://btech-solutions-projects-api.herokuapp.com/?cat=all`,
         {
+          mode: "no-cors",
           headers: {
             "Content-Type": "application/json",
+            Accept: "*/*",
+            "Accept-Encoding": "gzip, deflate, br",
+            Connection: "keep-alive",
           },
         }
       );
       console.log(result.json());
       setTest("success");
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
       setTest("fail");
     }
   };
