@@ -86,7 +86,7 @@ function Projects() {
         setProjects(result.data);
       } catch (err) {
         setLoading(false);
-        return <h1>Something went wrong. {err.message}</h1>;
+        console.log(err);
       }
     };
     fetchProjects();
@@ -106,7 +106,8 @@ function Projects() {
 
       setTest(result.data);
     } catch (error) {
-      setTest(error.message);
+      console.log(error);
+      setTest("fail");
     }
   };
   return (
