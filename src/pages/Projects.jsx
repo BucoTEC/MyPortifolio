@@ -92,10 +92,13 @@ function Projects() {
     fetchProjects();
   }, [filter]);
   const filterHandler = (e) => {
+    e.preventDefault();
     setFilter(e.target.value);
   };
 
-  const testHandler = async () => {
+  const testHandler = async (e) => {
+    e.preventDefault();
+
     try {
       const result = await axios.get(
         "http://btech-solutions-projects-api.herokuapp.com/?cat=all"
