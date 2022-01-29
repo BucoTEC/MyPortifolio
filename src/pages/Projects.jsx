@@ -55,19 +55,19 @@ const Filter = styled.div`
   width: 100%;
 `;
 
-const FilterOption = styled.select`
-  margin: 1rem;
-  background-color: #407bff;
-  color: white;
-  padding: 12px;
-  width: 190px;
-  border: none;
-  font-size: 20px;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
-  -webkit-appearance: button;
-  appearance: button;
-  outline: none;
-`;
+// const FilterOption = styled.select`
+//   margin: 1rem;
+//   background-color: #407bff;
+//   color: white;
+//   padding: 12px;
+//   width: 190px;
+//   border: none;
+//   font-size: 20px;
+//   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+//   -webkit-appearance: button;
+//   appearance: button;
+//   outline: none;
+// `;
 
 function Projects() {
   const [projects, setProjects] = useState([]);
@@ -76,6 +76,22 @@ function Projects() {
   useEffect(() => {
     Aos.init();
 
+    const fetchProjects = async () => {
+      try {
+        setLoading(true);
+        const result = await axios.get(
+          `http://btech-solutions-projects-api.herokuapp.com/?cat=all`
+        );
+        setProjects(result.data);
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+        return <h1>Something went wrong. {err.message}</h1>;
+      }
+    };
+    fetchProjects();
+  }, []);
+  useEffect(() => {
     const fetchProjects = async () => {
       try {
         setLoading(true);
@@ -112,20 +128,13 @@ function Projects() {
           <>
             <ProjectsList>
               {projects.map((x) => (
-                // <ProjectCard
-                //   key={x._id}
-                //   title={x.title}
-                //   img={x.img}
-                //   url={x.url}
-                // />
-                <h1 key={x._id}>{x.title}</h1>
+                <ProjectCard
+                  key={x._id}
+                  title={x.title}
+                  img={x.img}
+                  url={x.url}
+                />
               ))}
-              <ProjectCard
-                key={1111}
-                title={"test"}
-                img={"test"}
-                url={"test"}
-              />
             </ProjectsList>
           </>
         )}
