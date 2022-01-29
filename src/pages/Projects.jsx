@@ -74,7 +74,7 @@ function Projects() {
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState("all");
   useEffect(() => {
-    Aos.init({ duration: 2000 });
+    Aos.init();
 
     const fetchProjects = async () => {
       try {
@@ -96,7 +96,7 @@ function Projects() {
   };
   return (
     <AnimatePage>
-      <Wrapper>
+      <Wrapper data-aos="animation-name">
         <Filter>
           <select onChange={filterHandler} className="box">
             <option value="all">All</option>
@@ -117,7 +117,6 @@ function Projects() {
                   title={x.title}
                   img={x.img}
                   url={x.url}
-                  data-aos="fade-up"
                 />
               ))}
             </ProjectsList>
