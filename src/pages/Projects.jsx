@@ -71,7 +71,7 @@ const Filter = styled.div`
 
 function Projects() {
   const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
 
   useEffect(() => {
@@ -119,7 +119,7 @@ function Projects() {
                 />
               ))}
             </ProjectsList>
-            <h1>{projects[0].title}</h1>
+            <h1>{projects}</h1>
           </>
         )}
 
