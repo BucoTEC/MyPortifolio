@@ -7,7 +7,6 @@ const Container = styled.div`
   margin: 2.1rem 1.5rem;
   border-radius: 10px;
   transition: 0.7s all ease;
-  overflow: hidden;
 
   @media screen and (min-width: 1200px) {
     &:hover {
