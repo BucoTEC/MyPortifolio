@@ -112,12 +112,13 @@ function Projects() {
           <>
             <ProjectsList>
               {projects.map((x) => (
-                <ProjectCard
-                  key={x._id}
-                  title={x.title}
-                  img={x.img}
-                  url={x.url}
-                />
+                // <ProjectCard
+                //   key={x._id}
+                //   title={x.title}
+                //   img={x.img}
+                //   url={x.url}
+                // />
+                <h1 key={x._id}>{x.title}</h1>
               ))}
             </ProjectsList>
           </>
