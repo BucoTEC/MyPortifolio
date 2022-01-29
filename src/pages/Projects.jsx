@@ -55,30 +55,32 @@ const Filter = styled.div`
   width: 100%;
 `;
 
-// const FilterOption = styled.select`
-//   margin: 1rem;
-//   background-color: #407bff;
-//   color: white;
-//   padding: 12px;
-//   width: 190px;
-//   border: none;
-//   font-size: 20px;
-//   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
-//   -webkit-appearance: button;
-//   appearance: button;
-//   outline: none;
-// `;
+const FilterOption = styled.select`
+  margin: 1rem;
+  background-color: #407bff;
+  color: white;
+  padding: 12px;
+  width: 190px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+`;
 
 function Projects() {
   const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState("all");
-
+  const [test, setTest] = useState("");
   useEffect(() => {
+    Aos.init();
     const fetchProjects = async () => {
+      setLoading(true);
       try {
         const result = await axios.get(
-          `http://btech-solutions-projects-api.herokuapp.com/?cat=all`
+          `http://btech-solutions-projects-api.herokuapp.com/?cat=${filter}`
         );
         setLoading(false);
         setProjects(result.data);
@@ -88,21 +90,33 @@ function Projects() {
       }
     };
     fetchProjects();
-  }, []);
+  }, [filter]);
   const filterHandler = (e) => {
     setFilter(e.target.value);
+  };
+
+  const testHandler = async () => {
+    try {
+      const result = await axios.get(
+        "http://btech-solutions-projects-api.herokuapp.com/?cat=all"
+      );
+
+      setTest(result.data);
+    } catch (error) {
+      setTest(error.message);
+    }
   };
   return (
     <AnimatePage>
       <Wrapper data-aos="animation-name">
-        {/* <Filter>
-          <select onChange={filterHandler} className="box">
+        <Filter>
+          <FilterOption onChange={filterHandler} className="box">
             <option value="all">All</option>
             <option value="full">Full</option>
             <option value="back">Back</option>
             <option value="front">Front</option>
-          </select>
-        </Filter> */}
+          </FilterOption>
+        </Filter>
 
         {loading ? (
           <LoadingSvg src={LoadingIcon} />
@@ -118,10 +132,10 @@ function Projects() {
                 />
               ))}
             </ProjectsList>
-            <h1>{projects[0]?.title}</h1>
           </>
         )}
-
+        <h1>{test[0]?.title}</h1>
+        <button onClick={testHandler}>posalji</button>
         <BottomNav
           leftUrl={"/"}
           leftText={"Home"}
