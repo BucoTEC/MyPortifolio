@@ -119,6 +119,7 @@ function Projects() {
                 />
               ))}
             </ProjectsList>
+            <h1>{projects[0].title}</h1>
           </>
         )}
 
