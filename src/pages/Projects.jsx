@@ -101,7 +101,12 @@ function Projects() {
 
     try {
       const result = await axios.get(
-        "http://btech-solutions-projects-api.herokuapp.com/?cat=all"
+        "http://btech-solutions-projects-api.herokuapp.com/?cat=all",
+        {
+          headers: {
+            "access-control-allow-origin": "*",
+          },
+        }
       );
 
       setTest(result.data);
