@@ -73,9 +73,8 @@ function Projects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState("all");
-  useEffect(() => {
-    Aos.init();
 
+  useEffect(() => {
     const fetchProjects = async () => {
       try {
         setLoading(true);
@@ -91,51 +90,35 @@ function Projects() {
     };
     fetchProjects();
   }, []);
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        setLoading(true);
-        const result = await axios.get(
-          `http://btech-solutions-projects-api.herokuapp.com/?cat=${filter}`
-        );
-        setProjects(result.data);
-        setLoading(false);
-      } catch (err) {
-        setLoading(false);
-        return <h1>Something went wrong. {err.message}</h1>;
-      }
-    };
-    fetchProjects();
-  }, [filter]);
   const filterHandler = (e) => {
     setFilter(e.target.value);
   };
   return (
     <AnimatePage>
       <Wrapper data-aos="animation-name">
-        <Filter>
+        {/* <Filter>
           <select onChange={filterHandler} className="box">
             <option value="all">All</option>
             <option value="full">Full</option>
             <option value="back">Back</option>
             <option value="front">Front</option>
           </select>
-        </Filter>
+        </Filter> */}
 
         {loading ? (
           <LoadingSvg src={LoadingIcon} />
         ) : (
           <>
-            {/* <ProjectsList> */}
-            {projects.map((x) => (
-              <ProjectCard
-                key={x._id}
-                title={x.title}
-                img={x.img}
-                url={x.url}
-              />
-            ))}
-            {/* </ProjectsList> */}
+            <ProjectsList>
+              {projects.map((x) => (
+                <ProjectCard
+                  key={x._id}
+                  title={x.title}
+                  img={x.img}
+                  url={x.url}
+                />
+              ))}
+            </ProjectsList>
           </>
         )}
 
