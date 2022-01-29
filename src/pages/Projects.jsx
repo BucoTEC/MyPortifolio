@@ -106,7 +106,7 @@ function Projects() {
 
       setTest(result.data);
     } catch (error) {
-      setTest([error]);
+      setTest(error.message);
     }
   };
   return (
@@ -137,7 +137,7 @@ function Projects() {
             </ProjectsList>
           </>
         )}
-        <h1>{[test]}</h1>
+        <h1>{test}</h1>
         <button onClick={testHandler}>posalji</button>
         <BottomNav
           leftUrl={"/"}
