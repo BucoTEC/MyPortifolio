@@ -77,12 +77,11 @@ function Projects() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        setLoading(true);
         const result = await axios.get(
           `http://btech-solutions-projects-api.herokuapp.com/?cat=all`
         );
-        setProjects(result.data);
         setLoading(false);
+        setProjects(result.data);
       } catch (err) {
         setLoading(false);
         return <h1>Something went wrong. {err.message}</h1>;
@@ -119,7 +118,7 @@ function Projects() {
                 />
               ))}
             </ProjectsList>
-            <h1>{projects}</h1>
+            <h1>{projects[0]?.title}</h1>
           </>
         )}
 
