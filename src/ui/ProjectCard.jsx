@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 const Container = styled.div`
-  width: 20rem;
+  width: 15rem;
   height: 25rem;
   border: 1px solid grey;
   border-radius: 10px;
   transition: 0.7s all ease;
+  margin: 2.1rem 1.5rem;
 
   @media screen and (min-width: 1200px) {
-    margin: 2.1rem 1.5rem;
     &:hover {
       -webkit-box-shadow: 0px 10px 13px -7px #000000,
         5px 5px 15px 5px rgba(0, 0, 0, 0);
