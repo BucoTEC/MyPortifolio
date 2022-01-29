@@ -55,25 +55,10 @@ const Filter = styled.div`
   width: 100%;
 `;
 
-const FilterOption = styled.select`
-  margin: 1rem;
-  background-color: #407bff;
-  color: white;
-  padding: 12px;
-  width: 190px;
-  border: none;
-  font-size: 20px;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
-  -webkit-appearance: button;
-  appearance: button;
-  outline: none;
-`;
-
 function Projects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState("all");
-  const [test, setTest] = useState("");
   useEffect(() => {
     Aos.init();
     const fetchProjects = async () => {
@@ -96,39 +81,16 @@ function Projects() {
     setFilter(e.target.value);
   };
 
-  const testHandler = async (e) => {
-    e.preventDefault();
-
-    try {
-      const result = await fetch(
-        `http://btech-solutions-projects-api.herokuapp.com/?cat=all`,
-        {
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "*/*",
-            "Accept-Encoding": "gzip, deflate, br",
-            Connection: "keep-alive",
-          },
-        }
-      );
-      console.log(result.json());
-      setTest("success");
-    } catch (error) {
-      console.log(error.message);
-      setTest("fail");
-    }
-  };
   return (
     <AnimatePage>
       <Wrapper data-aos="animation-name">
         <Filter>
-          <FilterOption onChange={filterHandler} className="box">
+          <select onChange={filterHandler} className="box">
             <option value="all">All</option>
             <option value="full">Full</option>
             <option value="back">Back</option>
             <option value="front">Front</option>
-          </FilterOption>
+          </select>
         </Filter>
 
         {loading ? (
@@ -147,8 +109,6 @@ function Projects() {
             </ProjectsList>
           </>
         )}
-        <h1>{test}</h1>
-        <button onClick={testHandler}>posalji</button>
         <BottomNav
           leftUrl={"/"}
           leftText={"Home"}
