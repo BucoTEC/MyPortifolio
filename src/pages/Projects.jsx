@@ -126,16 +126,16 @@ function Projects() {
           <LoadingSvg src={LoadingIcon} />
         ) : (
           <>
-            <ProjectsList>
-              {projects.map((x) => (
-                <ProjectCard
-                  key={x._id}
-                  title={x.title}
-                  img={x.img}
-                  url={x.url}
-                />
-              ))}
-            </ProjectsList>
+            {/* <ProjectsList> */}
+            {projects.map((x) => (
+              <ProjectCard
+                key={x._id}
+                title={x.title}
+                img={x.img}
+                url={x.url}
+              />
+            ))}
+            {/* </ProjectsList> */}
           </>
         )}
 
