@@ -106,7 +106,7 @@ function Projects() {
 
       setTest(result.data);
     } catch (error) {
-      setTest(error.message);
+      setTest(error);
     }
   };
   return (
