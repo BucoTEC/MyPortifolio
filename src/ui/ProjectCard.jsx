@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 const Container = styled.div`
-  width: 15rem;
+  width: 20rem;
   height: 25rem;
   border: 1px solid grey;
   border-radius: 10px;

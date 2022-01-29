@@ -98,12 +98,12 @@ function Projects() {
     <AnimatePage>
       <Wrapper>
         <Filter>
-          <FilterOption onChange={filterHandler} className="box">
+          <select onChange={filterHandler} className="box">
             <option value="all">All</option>
             <option value="full">Full</option>
             <option value="back">Back</option>
             <option value="front">Front</option>
-          </FilterOption>
+          </select>
         </Filter>
 
         {loading ? (
