@@ -29,8 +29,13 @@ const Wrapper = styled.div`
 `;
 
 const LoadingSvg = styled.img`
-  height: 20rem;
+  height: 15rem;
+  padding: 5rem;
   animation: spin 1s linear infinite;
+
+  ${phone({
+    height: "10rem",
+  })}
   @keyframes spin {
     0% {
       transform: rotate(0deg);
