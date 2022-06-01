@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 `;
 
 const Left = styled.div`
-	flex: 4;
+	flex: 3;
 	height: 70%;
 	overflow: hidden;
 	display: flex;
@@ -30,6 +30,7 @@ const Left = styled.div`
 	justify-content: center;
 	${desktop({
 		flex: "1",
+		alignItems: "center",
 	})}
 `;
 const Right = styled.div`
@@ -67,6 +68,9 @@ const Inner = styled.div`
 	img {
 		height: 100px;
 		margin: 1rem;
+		${desktop({
+			height: "120px",
+		})}
 	}
 `;
 
@@ -88,12 +92,10 @@ function OtherSkills() {
 		<Wrapper>
 			<Left>
 				<Inner data-aos="fade-up">
-					<img src={GraphLogo} alt="" />
 					<img src={PythonLogo} alt="" />
 					<img src={PostgresLogo} alt="" />
 				</Inner>
 				<Inner data-aos="fade-down">
-					<img src={GraphLogo} alt="" />
 					<img src={GoLangLogo} alt="" />
 					<img src={GraphLogo} alt="" />
 				</Inner>
