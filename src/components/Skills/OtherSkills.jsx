@@ -13,37 +13,37 @@ const Wrapper = styled.div`
 	margin-top: 4rem;
 	display: flex;
 	align-items: center;
-	flex-direction: column;
+	flex-direction: column-reverse;
 	${desktop({
 		flexDirection: "row",
 	})}
 `;
 
 const Left = styled.div`
-	flex: 1;
-	height: 80%;
+	flex: 3;
+	height: 70%;
 	overflow: hidden;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	img {
-		height: 100px;
-	}
+	${desktop({
+		flex: "1",
+	})}
 `;
 const Right = styled.div`
 	flex: 1;
-	height: 90%;
 	display: flex;
 	align-items: center;
 	justify-content: start;
 	flex-direction: column;
+	overflow: hidden;
 	${desktop({
 		justifyContent: "center",
 		flex: "1.4",
 	})}
 	h1 {
 		overflow: hidden;
-
+		text-align: start;
 		font-size: 6rem;
 		font-weight: 300;
 		${desktop({
@@ -52,13 +52,21 @@ const Right = styled.div`
 	}
 	h2 {
 		overflow: hidden;
-
+		text-align: start;
 		font-weight: 200;
-		text-align: center;
-		width: 70%;
 		font-size: 2rem;
 	}
 `;
+
+const Inner = styled.div`
+	display: flex;
+	flex-direction: column;
+	img {
+		height: 100px;
+		margin: 1rem;
+	}
+`;
+
 const Vertical = styled.div`
 	width: 1px;
 	background-color: black;
@@ -70,19 +78,27 @@ const Vertical = styled.div`
 `;
 
 function OtherSkills() {
-	console.log("toher skils");
-
 	return (
 		<Wrapper>
 			<Left>
-				<img src={PythonLogo} alt="" />
-				<img src={GoLangLogo} alt="" />
-				<img src={PostgresLogo} alt="" />
-				<img src={GraphLogo} alt="" />
+				<Inner>
+					<img src={GraphLogo} alt="" />
+					<img src={PythonLogo} alt="" />
+					<img src={PostgresLogo} alt="" />
+				</Inner>
+				<Inner>
+					<img src={GraphLogo} alt="" />
+					<img src={GoLangLogo} alt="" />
+					<img src={GraphLogo} alt="" />
+				</Inner>
 			</Left>
 			<Vertical />
 			<Right>
-				<h1>OtherSkills</h1>
+				<div>
+					<h1>things</h1>
+					<h2>i am also</h2>
+					<h2>familiar with</h2>
+				</div>
 			</Right>
 		</Wrapper>
 	);
