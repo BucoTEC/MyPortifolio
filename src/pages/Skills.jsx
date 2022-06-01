@@ -32,12 +32,12 @@ function Skills() {
 					top={1000}
 					style={{ width: "4rem", height: "4rem" }}
 				/>
+				<OtherSkills />
 				<Main />
 				<Mongo />
 				<Express />
 				<ReactIntro />
 				<Node />
-				<OtherSkills />
 				<BottomNav
 					leftUrl={"/contact"}
 					leftText={"Contact Me"}
