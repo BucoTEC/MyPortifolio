@@ -22,11 +22,11 @@ const Wrapper = styled.div`
 `;
 
 const Left = styled.div`
-	flex: 3;
+	flex: 4;
 	height: 70%;
 	overflow: hidden;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
 	${desktop({
 		flex: "1",
@@ -43,10 +43,11 @@ const Right = styled.div`
 		justifyContent: "center",
 		flex: "1.4",
 	})}
+
 	h1 {
 		overflow: hidden;
 		text-align: start;
-		font-size: 6rem;
+		font-size: 5rem;
 		font-weight: 300;
 		${desktop({
 			fontSize: "7rem",
