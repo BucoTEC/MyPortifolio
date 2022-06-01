@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { desktop } from "../../utils/responsive.js";
 import PythonLogo from "../../assets/python.svg";
 import GoLangLogo from "../../assets/GoLang.svg";
@@ -78,22 +80,25 @@ const Vertical = styled.div`
 `;
 
 function OtherSkills() {
+	useEffect(() => {
+		Aos.init({ duration: 2000 });
+	}, []);
 	return (
 		<Wrapper>
 			<Left>
-				<Inner>
+				<Inner data-aos="fade-up">
 					<img src={GraphLogo} alt="" />
 					<img src={PythonLogo} alt="" />
 					<img src={PostgresLogo} alt="" />
 				</Inner>
-				<Inner>
+				<Inner data-aos="fade-down">
 					<img src={GraphLogo} alt="" />
 					<img src={GoLangLogo} alt="" />
 					<img src={GraphLogo} alt="" />
 				</Inner>
 			</Left>
 			<Vertical />
-			<Right>
+			<Right data-aos="fade-left">
 				<div>
 					<h1>I'm also</h1>
 					<h2>familiar with</h2>
