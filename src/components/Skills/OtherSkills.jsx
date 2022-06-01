@@ -1,6 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { desktop } from "../../utils/responsive.js";
+import PythonLogo from "../../assets/python.svg";
+import GoLangLogo from "../../assets/GoLang.svg";
+import PostgresLogo from "../../assets/Postgresql.svg";
+import GraphLogo from "../../assets/GraphQL.svg";
+
 const Wrapper = styled.div`
 	width: 100%;
 	height: 100vh;
@@ -19,7 +24,11 @@ function OtherSkills() {
 
 	return (
 		<Wrapper>
-			<div>OtherSkills</div>
+			<h1>OtherSkills</h1>
+			<img src={PythonLogo} alt="" />
+			<img src={GoLangLogo} alt="" />
+			<img src={PostgresLogo} alt="" />
+			<img src={GraphLogo} alt="" />
 		</Wrapper>
 	);
 }
