@@ -95,8 +95,7 @@ function OtherSkills() {
 			<Vertical />
 			<Right>
 				<div>
-					<h1>things</h1>
-					<h2>i am also</h2>
+					<h1>I'm also</h1>
 					<h2>familiar with</h2>
 				</div>
 			</Right>
