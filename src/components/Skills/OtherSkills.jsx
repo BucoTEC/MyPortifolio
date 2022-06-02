@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { desktop } from "../../utils/responsive.js";
+import { desktop, tablet } from "../../utils/responsive.js";
 import PythonLogo from "../../assets/python.svg";
 import GoLangLogo from "../../assets/GoLang.svg";
 import PostgresLogo from "../../assets/Postgresql.svg";
@@ -45,6 +45,10 @@ const Right = styled.div`
 	${desktop({
 		justifyContent: "center",
 		flex: "1.4",
+	})}
+	${tablet({
+		justifyContent: "center",
+		flex: "1.6",
 	})}
 
 	h1 {
