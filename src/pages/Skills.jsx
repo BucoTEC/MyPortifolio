@@ -33,11 +33,11 @@ function Skills() {
 					style={{ width: "4rem", height: "4rem" }}
 				/>
 				<Main />
-				<Mongo />
-				<Express />
-				<ReactIntro />
-				<Node />
 				<OtherSkills />
+				<Express />
+				<Mongo />
+				<Node />
+				<ReactIntro />
 				<BottomNav
 					leftUrl={"/contact"}
 					leftText={"Contact Me"}
