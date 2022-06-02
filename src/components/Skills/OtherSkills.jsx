@@ -36,7 +36,7 @@ const Left = styled.div`
 	})}
 `;
 const Right = styled.div`
-	flex: 1;
+	flex: 1.2;
 	display: flex;
 	align-items: center;
 	justify-content: start;
