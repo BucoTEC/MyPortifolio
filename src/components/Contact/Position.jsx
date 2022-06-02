@@ -96,7 +96,9 @@ export default function Position() {
 					</a>
 				</h1>
 				<h2>utc +2</h2>
-				<ArrowIcon src={Arrow} alt="" />
+				<a href="#contact">
+					<ArrowIcon src={Arrow} alt="" />
+				</a>
 			</Text>
 			<MainImg src={eu} />
 		</Wrapper>
