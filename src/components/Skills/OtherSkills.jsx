@@ -7,6 +7,8 @@ import PythonLogo from "../../assets/python.svg";
 import GoLangLogo from "../../assets/GoLang.svg";
 import PostgresLogo from "../../assets/Postgresql.svg";
 import GraphLogo from "../../assets/GraphQL.svg";
+import DockerLogo from "../../assets/docker.svg";
+import PostmanLogo from "../../assets/postman.svg";
 
 const Wrapper = styled.div`
 	width: 100%;
@@ -69,7 +71,7 @@ const Inner = styled.div`
 		height: 100px;
 		margin: 1rem;
 		${desktop({
-			height: "120px",
+			height: "105px",
 		})}
 	}
 `;
@@ -94,10 +96,12 @@ function OtherSkills() {
 				<Inner data-aos="fade-up">
 					<img src={PythonLogo} alt="" />
 					<img src={PostgresLogo} alt="" />
+					<img src={DockerLogo} alt="" />
 				</Inner>
 				<Inner data-aos="fade-down">
 					<img src={GoLangLogo} alt="" />
 					<img src={GraphLogo} alt="" />
+					<img src={PostmanLogo} alt="" />
 				</Inner>
 			</Left>
 			<Vertical />
